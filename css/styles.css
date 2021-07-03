@@ -1,5 +1,9 @@
 body{
     height: 100vh;
+    background-image: url("https://www.kindpng.com/picc/m/540-5403417_movie-screen-png-movie-theater-png-transparent-png.png");
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-size: cover;
 }
 
 main{
@@ -24,7 +28,8 @@ main{
     grid-area: board;
     height: 720px;
     width: 1080px;
-    background-color: yellow;
+    background-color: black;
+    margin-bottom: 500px;
 }
 .score{
     visibility: hidden;
@@ -88,17 +93,17 @@ main{
 }
 
 .tickets{
+    background-color: rgba(236, 236, 236, 0.74);
     grid-area: board;
     display: grid;
     grid-template-areas: 
     "starW harryP"
     "lotr  marvel";
-    margin-top: 100px;                        
-    margin-left: 40px;
+    margin: 100px 65px 40px;
     height: 500px;
-    width:1000px;
-    background-color: skyblue;
+    width:950px;
     grid-gap: 10px;
+    border-radius: 100px;
 }
 
 #starW{
@@ -121,5 +126,12 @@ main{
     grid-area: marvel;
 }
 
-#starW, #lotr, #harryP, #marvel{
+#playBtn{
+    height: 75px;
+    width: 150px;
+    border-radius: 100px;
+    background-color: red;
+    margin-left: 45%;
+    color: white;
+    font-size: 20px;
 }
