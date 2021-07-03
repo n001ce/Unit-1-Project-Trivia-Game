@@ -1,24 +1,46 @@
 
 
-const helpBtn = document.querySelector(".help")
-const nextBtn = document.querySelector(".next")
-const restartBtn = document.querySelector(".restart")
-const answerBtns = document.querySelectorAll(".answerQ")
-const options = document.querySelectorAll(".options")
-const scoreB = document.querySelectorAll(".scoreB")
+const helpBtn = document.querySelector("#help")
+const nextBtn = document.querySelector("#next")
+const restartBtn = document.querySelector("#restart")
+const answerBtns = document.querySelector(".answerQ")
+const options = document.querySelector(".options")
+const scoreB = document.querySelector(".score")
 
-const buttons = [helpBtn, nextBtn, restartBtn, answerBtns, options, scoreB]
 
-let numWrong = document.querySelector(".numWrong")
-let numCorrect = document.querySelector(".numCorrect")
-let assistsUsed = document.querySelector(".helpUsed")
-let remainingQ = document.querySelector("remainingQ")
+let numWrong = document.querySelector("#numWrong")
+let numCorrect = document.querySelector("#numCorrect")
+let assistsUsed = document.querySelector("#helpUsed")
+let remainingQ = document.querySelector("#remainingQ")
 
+init()
 
 function init(){
-    
+    options.style.display = "none"
+    answerBtns.style.display = "none"
+    options.style.display ="none"
+    scoreB.style.display = "none"
 }
-function startGame(){
+
+let trivia
+function selectTrivia() {
+    if (event.type === 'starWars') {
+        trivia = starWars
+    } else if(event.id === "lotr"){
+        trivia = lotr
+    }else if(event.id === "harryP"){
+        trivia = harryP
+    }else if(event.id==="marvel"){
+        trivia = marvel
+    }
+    return trivia
+  }
+
+function startGame(trivia){
+    options.style.display = "flex"
+    answerBtns.style.display = "flex"
+    options.style.display ="flex"
+    scoreB.style.display = "flex"
 
 }
 function questionSelector(){}
