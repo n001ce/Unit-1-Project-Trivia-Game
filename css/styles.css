@@ -1,0 +1,125 @@
+body{
+    height: 100vh;
+}
+
+main{
+    display: grid;
+    grid-template-areas: 
+        "header header header header"
+        "score board board options"
+        "score board board options"
+        "score input input options";
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background-color: green;
+    }   
+
+.title{
+    font-size: 50px;
+    grid-area: header;
+}
+
+.board{
+    grid-area: board;
+    height: 720px;
+    width: 1080px;
+    background-color: yellow;
+}
+.score{
+    visibility: hidden;
+    grid-area: score;
+    height: 400px;
+    width: 300px;
+    background-color:pink;
+    margin: 20px;
+}
+.options{
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    grid-area: options;
+    height: 400px;
+    width: 300px;
+    background-color: blue;
+
+}
+.answerQ{
+    visibility: hidden;
+    grid-area: input;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100px;
+    width: 500px;
+    background-color: teal;
+    justify-content: space-between;
+    align-self: center;
+    justify-content: space-between;
+    align-items: center;
+}
+#restart, #change{
+    background-color: lightblue;
+    height: 45px;
+    width: 100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    display: hidden;
+}
+.nextBtn, .help{
+    background-color: grey;
+    height: 45px;
+    width: 100px;
+    align-self: center;
+}
+.help{
+    margin-left: 30px;
+}
+
+
+#a, #b,#c,#d{
+    background-color: red;
+    height: 30px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.tickets{
+    grid-area: board;
+    display: grid;
+    grid-template-areas: 
+    "starW harryP"
+    "lotr  marvel";
+    margin-top: 100px;                        
+    margin-left: 40px;
+    height: 500px;
+    width:1000px;
+    background-color: skyblue;
+    grid-gap: 10px;
+}
+
+#starW{
+    grid-area: starW;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+#lotr{
+    grid-area: lotr;
+    margin-left: 106px;
+    
+}
+#harryP{
+    grid-area: harryP;
+    margin-top: 40px;
+    margin-right: 40px;
+}
+#marvel{
+    grid-area: marvel;
+}
+
+#starW, #lotr, #harryP, #marvel{
+}
