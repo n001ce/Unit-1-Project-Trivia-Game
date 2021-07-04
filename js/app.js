@@ -2,12 +2,18 @@
 
 const helpBtn = document.querySelector("#help")
 const nextBtn = document.querySelector("#next")
-const restartBtn = document.querySelector("#restart")
 const answerBtns = document.querySelector(".answerQ")
-const options = document.querySelector(".options")
 const scoreB = document.querySelector(".score")
+const playBtn = document.getElementById("play")
 
+let quesBox = document.querySelector(".quesBox")
+let tickets = document.querySelector(".tickets")
+let harryP = document.getElementById("harryP")
+let starW = document.getElementById("starW")
+let lotr = document.getElementById("lotr")
+let marvel = document.getElementById("marvel")
 
+let trivia
 let numWrong = document.querySelector("#numWrong")
 let numCorrect = document.querySelector("#numCorrect")
 let assistsUsed = document.querySelector("#helpUsed")
@@ -16,32 +22,38 @@ let remainingQ = document.querySelector("#remainingQ")
 init()
 
 function init(){
-    options.style.display = "none"
     answerBtns.style.display = "none"
-    options.style.display ="none"
     scoreB.style.display = "none"
+    quesBox.style.display= "none"
 }
 
-let trivia
-function selectTrivia() {
-    if (event.type === 'starWars') {
-        trivia = starWars
-    } else if(event.id === "lotr"){
-        trivia = lotr
-    }else if(event.id === "harryP"){
-        trivia = harryP
-    }else if(event.id==="marvel"){
-        trivia = marvel
-    }
-    return trivia
-  }
+harryP.addEventListener("click", function(e){
+	trivia = harryP
+    startGame(trivia)
+	})
+
+starW.addEventListener("click", function(e){
+	trivia = starW
+    startGame(trivia)
+	})
+
+lotr.addEventListener("click", function(e){
+    trivia = lotr
+    startGame(trivia)
+    })
+
+marvel.addEventListener("click", function(e){
+    trivia = marvel
+    startGame(trivia)
+    })
+
 
 function startGame(trivia){
-    options.style.display = "flex"
+    console.log(trivia)
     answerBtns.style.display = "flex"
-    options.style.display ="flex"
     scoreB.style.display = "flex"
-
+    tickets.style.display="none"
+    quesBox.style.display="block"
 }
 function questionSelector(){}
 function score(){}

@@ -19,6 +19,8 @@ main{
 .title{
     font-size: 50px;
     grid-area: header;
+    text-align: center;
+    justify-content: center;
 }
 
 .board{
@@ -33,21 +35,9 @@ main{
     height: 400px;
     width: 300px;
     background-color:pink;
-    margin: 10px;
+    margin-right: 10px;
 }
-.options{
-    /* visibility: hidden; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    margin: 10px;
-    grid-area: options;
-    height: 400px;
-    width: 300px;
-    background-color: blue;
 
-}
 .answerQ{
     /* visibility: hidden; */
     grid-area: input;
@@ -82,6 +72,7 @@ main{
 
 
 #a, #b,#c,#d{
+    grid-area: input;
     background-color: red;
     height: 30px;
     width: 40px;
@@ -122,12 +113,24 @@ main{
     grid-area: marvel;
 }
 
-#playBtn{
-    height: 75px;
-    width: 150px;
+
+.quesBox{
+    background-color: rgba(236, 236, 236, 0.74);
+    grid-area: board;
+    margin: 30px 65px 40px;
+    height: 500px;
+    width: 950px;
     border-radius: 100px;
-    background-color: red;
-    margin-left: 45%;
-    color: white;
-    font-size: 20px;
+   
+
 }
+.question, .quesOp{
+    grid-area: board;
+    justify-self: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
+
+
+}
+
