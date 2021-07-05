@@ -13,16 +13,16 @@
         
         <div class="board">
             <form class="tickets">
-                    <div id="starW" href="">
+                    <div id="starW">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" alt="" width= "450px" height= "200px">
                     </div>
-                    <div id="harryP" href="">
+                    <div id="harryP">
                         <img src="https://1757140519.rsc.cdn77.org/blog/wp-content/uploads/2020/06/image9-1568x882.png" alt="" width="336px" height="200px">
                     </div>
-                    <div id="lotr" href="">
+                    <div id="lotr">
                         <img src="https://cdn.flickeringmyth.com/wp-content/uploads/2019/03/Lord_of_the_Rings_Logo.jpg" alt="" width="336px" height="200px">
                     </div>
-                    <div id="marvel" href="">
+                    <div id="marvel">
                         <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/marvelstudios_logo.jpg" alt="" width="336px" height="200px">
                     </div>
             </div>
@@ -30,28 +30,22 @@
         <div class="quesBox">
             <h1 class = "question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quo recusandae dolorum ea, in eius. Deleniti ab beatae, doloribus tempora, deserunt quis eveniet sunt doloremque amet, hic dignissimos enim voluptatibus.</h1>
             <ul class = "quesOp">
-                <li id="option1"></li>
-                <li id="option2"></li>
-                <li id="option3"></li>
-                <li id="option4"></li>
+                <li id="option1" onclick="checkAnswer()">A.</li>
+                <li id="option2" onclick="checkAnswer()">B.</li>
+                <li id="option3" onclick="checkAnswer()">C.</li>
+                <li id="option4" onclick="checkAnswer()">D.</li>
             </ul>
         </div>
             <div class="answerQ">
-                <button class ="nextBtn">NEXT</button>
-                <ol class = "selections">
-                    <button id="a">A</button>
-                    <button id="b">B</button>
-                    <button id="c">C</button>
-                    <button id="d">D</button>
-                </ol>
+                <button id ="nextBtn">NEXT</button>
                 <button class ="help">HELP</button>
             </div>
         <div class="score">
             <ul class ="scoreB">
-                <li id="numCorrect">Number correct: </li>
+                <li id="numCorrect" onclick="questionSelector()">Number correct: </li>
                 <li id="numWrong">Number Wrong: </li>
                 <li id="helpUsed">Number of assists: </li>
-                <li id="remainingQ">Q Left: </li>
+                <li id="remainingQ" >Q Left: </li>
             </ul>
         </div>
     </main>
