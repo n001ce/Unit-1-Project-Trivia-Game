@@ -60,24 +60,14 @@ main{
     align-items: center;
     display: hidden;
 }
-#nextBtn, .help{
+#changeBtn, .help{
     background-color: grey;
     height: 45px;
     width: 100px;
     align-self: center;
 }
-.help{
-    margin-left: 30px;
-}
 
 
-#a, #b,#c,#d{
-    grid-area: input;
-    background-color: red;
-    height: 30px;
-    width: 40px;
-    margin-right: 10px;
-}
 
 .tickets{
     background-color: rgba(236, 236, 236, 0.74);
@@ -141,7 +131,7 @@ main{
     list-style-type: none;
     margin-top: 50px;
 }
-#option1, #option2, #option3, #option4{
+.option1, .option2, .option3, .option4{
     border: 2px solid black;
     margin: 7px;
     padding-left: 10px;
