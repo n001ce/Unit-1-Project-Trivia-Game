@@ -6,7 +6,7 @@ const answerBtns = document.querySelector(".answerQ")
 let scoreB = document.querySelector(".score")
 let numCorrect = document.getElementById("numCorrect")
 let numWrong = document.getElementById("numWrong")
-
+let quesOp = document.querySelectorAll("quesOp")
 let quesBox = document.querySelector(".quesBox")
 let tickets = document.querySelector(".tickets")
 let harryP = document.getElementById("harryP")
@@ -18,6 +18,8 @@ let questionCounter
 let trivia
 let assistsUsed = document.querySelector("#helpUsed")
 let remainingQ = document.querySelector("#remainingQ")
+
+let response = document.querySelector(".response")
 
 
 document.getElementById("a").addEventListener("click", checkAnswer)
@@ -100,11 +102,12 @@ function checkAnswer(e){
         e.target.style.backgroundColor = "green"
         rightUser += 1
         player.score += 10
+        response.innerText = "CORRECT"
         questionCounter ++
     }else{
         e.target.style.backgroundColor = "red"
         wrongUser += 1
-        questionCounter++
+        response.innerText = "INCORRECT"
     }
     render()
 }
@@ -124,6 +127,9 @@ function backgroundImage(trivia){
 function render(){
     backgroundImage(trivia)
     questionSelector(questionCounter)
+    quesOp.forEach(op=>{
+        op.style.backgroundColor = "none"
+    })
     numCorrect.innerText = rightUser
     numWrong.innerText = wrongUser
 }
