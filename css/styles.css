@@ -1,6 +1,9 @@
 body{
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    background-color: black;
     height: 100vh;
-    background-color: green;
 }
 
 main{
@@ -13,7 +16,6 @@ main{
     justify-content: center;
     justify-items: center;
     align-items: center;
-    background-color: green;
     }   
 
 .title{
@@ -27,7 +29,6 @@ main{
     grid-area: board;
     height: 720px;
     width: 1080px;
-    background-color: rgba(58, 56, 56, 0.61);
 }
 .score{
     /* visibility: hidden; */
@@ -37,6 +38,7 @@ main{
     background-color:pink;
     margin-right: 10px;
 }
+
 
 .answerQ{
     /* visibility: hidden; */
@@ -133,14 +135,24 @@ main{
 }
 
 .response{
-    display: flex;
+    background-repeat: no-repeat;
+    background-size:fill;
+    background-position: center;
+    background-color: black;
+    grid-area: board;
+    margin-top: 50px;
+    margin-left: 450px;
+    justify-items: center;
+    align-self: center;
     justify-content: center;
     align-items: center;
     grid-area: input;
-    margin-right: 150px;
-    height: 70px;
+    height: 200px;
     width: 200px;
-    background-color: lightgreen;
+    background-color: transparent;
     text-align: center;
     font-size:25px;
+}
+.scoreB{
+    list-style: none;
 }

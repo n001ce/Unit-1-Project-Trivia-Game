@@ -35,18 +35,23 @@
                 <li id="c" class="option3">C.</li>
                 <li id="d" class="option4">D.</li>
             </ul>
+            <div class="response"></div>
         </div>
         <form class="answerQ">
             <button class ="help" onclick = "assists()">HELP</button>
-            <p class="response">NUMBER RIGHT</p>
             <button id = "changeBtn" onclick = "init()">CHANGE</button>
         </form>
         <div class="score">
             <ul class ="scoreB">
-                <li id="numCorrect">Number correct: </li>
-                <li id="numWrong">Number Wrong: </li>
-                <li id="helpUsed">Number of assists: </li>
+                <label>Number Correct</label>
+                <li id="numCorrect" placeholder="Number Correct"></li>               
+                <label>Number Wrong: </label>
+                <li id="numWrong"></li>               
+                <label>Number of Assists: </label>
+                <li id="helpUsed"></li>  
+                <label>Remaining Questions: </label>
                 <li id="remainingQ" >Q Left: </li>
+                
             </ul>
         </div>
     </main>

@@ -1,26 +1,19 @@
-
-
-const helpBtn = document.querySelector("#help")
-let nextBtn = document.querySelector("#nextBtn")
-const answerBtns = document.querySelector(".answerQ")
+const harryP = document.getElementById("harryP")
+const starW = document.getElementById("starW")
+const lotr = document.getElementById("lotr")
+const marvel = document.getElementById("marvel")
 let scoreB = document.querySelector(".score")
 let numCorrect = document.getElementById("numCorrect")
 let numWrong = document.getElementById("numWrong")
 let quesOp = document.querySelectorAll("quesOp")
 let quesBox = document.querySelector(".quesBox")
 let tickets = document.querySelector(".tickets")
-let harryP = document.getElementById("harryP")
-let starW = document.getElementById("starW")
-let lotr = document.getElementById("lotr")
-let marvel = document.getElementById("marvel")
 let changeBtn = document.getElementById("changeBtn")
-let questionCounter
-let trivia
+let questionCounter, trivia
 let assistsUsed = document.querySelector("#helpUsed")
 let remainingQ = document.querySelector("#remainingQ")
-
 let response = document.querySelector(".response")
-
+let bodyEl = document.querySelector("body")
 
 document.getElementById("a").addEventListener("click", checkAnswer)
 document.getElementById("b").addEventListener("click", checkAnswer)
@@ -74,11 +67,7 @@ function startGame(){
     render()
 }
 function clearState(){
-    console.log("working")
-    document.querySelector(".option1").style.backgroundColor = "transparent"
-    document.querySelector(".option2").style.backgroundColor = "transparent"
-    document.querySelector(".option3").style.backgroundColor = "transparent"
-    document.querySelector(".option4").style.backgroundColor = "transparent"
+    response.style.display = "none"
 }
 
 function assists(){
@@ -107,24 +96,26 @@ function questionSelector(){
 function checkAnswer(e){
     const selectedAnswer = e.target.id
     if(selectedAnswer === trivia.questions[questionCounter].answerId){
-        e.target.style.backgroundColor = "green"
+        response.style.display = "block"
+        response.style.backgroundImage = "url('css/right-saber.png')"
         rightUser += 1
         player.score += 10
-        response.innerText = "CORRECT"
-        setTimeout(render, 1000)
     }else{
-        e.target.style.backgroundColor = "red"
+        response.style.display= "block"
+        response.style.backgroundImage = "url('css/wrong-saber.png')"
         wrongUser += 1
         response.innerText = "INCORRECT"
-        setTimeout(render, 1000)
     }
     questionCounter ++
+    setTimeout(render, 1500)
+    
 }
     
 function backgroundImage(trivia){
     if(trivia === harryPotter){
         document.querySelector(".quesBox").style.backgroundImage = `url('css/harryP_question.png')`
     }else if(trivia === starWars){
+        document.querySelector("body").style.backgroundImage = "url('https://pbs.twimg.com/media/EVvJpmgU8AAEq2q.jpg')"
         document.querySelector(".quesBox").style.backgroundImage = "url('css/starW_question.png')"
     }else if(trivia === lordOfTheRings){
         document.querySelector(".quesBox").style.backgroundImage = "url('css/lotr_question.png')"
@@ -139,6 +130,8 @@ function render(){
     numCorrect.innerText = rightUser
     numWrong.innerText = wrongUser
     setTimeout(clearState(),2000)
+    remainingQ.innerText = trivia.questions.length - questionCounter
+    clearState()
 }
 
 
@@ -152,9 +145,12 @@ function Player(name){
 
 
 
-
 function Trivia(){
     this.questions = []
+    this.questionImage
+    this.wrongImg
+    this.correctImg
+    this.scoreB
 }
 
 const harryPotter= new Trivia()
@@ -170,6 +166,7 @@ harryPotter.questions.push(
     {question : "Who poses as Mad-Eye Moody, Harry’s 4th year Defense Against the Dark Arts professor?", answerId : "c", options: {a: "Voldemort", b: "Peter Pettigrew", c: "Barty Crouch Jr.", d:"Sirius Black"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "Who saved a centaur from being strangled by Professor Umbridge in the Forbidden Forest?", answerId : "a", options: {a: "Grawp", b: "Buckbeak", c: "Hagrid", d:"Luna"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     )
+harryPotter.questionImage = "url('css/harryP_question.png')"
 const starWars = new Trivia()
 starWars.questions.push(
     {question : "According to Yoda, there are always how many Sith Lords…no more, no less?", answerId : "a", options: {a: "2", b: "1", c: "3", d:"4"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
@@ -183,7 +180,7 @@ starWars.questions.push(
     {question : "Legend describes what as the hidden world of the sith?", answerId : "d", options: {a: "Degoba", b: "Tattoine", c: "Kashyyk", d:"Exegol"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "What odds does C-3P0 give Han for successfully navigating the asteroid field?", answerId : "a", options: {a: "3720 to 1", b: "5430 to 1", c: "2670 to 1", d:"3500 to 1"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
 )
-
+starWars.qu
 const lordOfTheRings = new Trivia()
 lordOfTheRings.questions.push(
     {question : "How many rings of power were made?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
