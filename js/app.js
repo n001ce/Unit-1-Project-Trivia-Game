@@ -74,9 +74,11 @@ function startGame(){
     render()
 }
 function clearState(){
-    quesOp.forEach(ques=>{
-        ques.target.backgroundColor = "white"
-    })
+    console.log("working")
+    document.querySelector(".option1").style.backgroundColor = "transparent"
+    document.querySelector(".option2").style.backgroundColor = "transparent"
+    document.querySelector(".option3").style.backgroundColor = "transparent"
+    document.querySelector(".option4").style.backgroundColor = "transparent"
 }
 
 function assists(){
@@ -101,7 +103,6 @@ function questionSelector(){
     }
 }
 
-    
 
 function checkAnswer(e){
     const selectedAnswer = e.target.id
@@ -110,13 +111,14 @@ function checkAnswer(e){
         rightUser += 1
         player.score += 10
         response.innerText = "CORRECT"
-        questionCounter ++
+        setTimeout(render, 1000)
     }else{
         e.target.style.backgroundColor = "red"
         wrongUser += 1
         response.innerText = "INCORRECT"
+        setTimeout(render, 1000)
     }
-    render()
+    questionCounter ++
 }
     
 function backgroundImage(trivia){
@@ -134,12 +136,9 @@ function backgroundImage(trivia){
 function render(){
     backgroundImage(trivia)
     questionSelector(questionCounter)
-    clearState()
-    quesOp.forEach(op=>{
-        op.style.backgroundColor = "none"
-    })
     numCorrect.innerText = rightUser
     numWrong.innerText = wrongUser
+    setTimeout(clearState(),2000)
 }
 
 
@@ -179,8 +178,8 @@ starWars.questions.push(
     {question : "What is the name of Anakin's stepbrother?", answerId : "d", options: {a: "Kyle Lars", b: "Mik Lars", c: "Skid Lars", d:"Owen Lars"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "What is the name of the female member of the Jedi High Council who is of the same species of as Yoda?", answerId : "a", options: {a: "Yaddle", b: "Yodel", c: "Yeet", d:"Yankle"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "Lightsabers are powered by what type of crystal?", answerId : "b", options: {a: "Nova Crystal", b: "Kyber Crystal", c: "Quarzite Crystal", d:"Galzez Crystal"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Who said, I know what I have to do, but I don't know that I have the strength to do it?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink: "https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Palpatine gave the command to execute what Order in Revenge of the Sith?", answerId : "c", options: {a: "Ben Kenobi", b: "Luke Skywalker", c: "Kylo Ren", d:"Rey Skywalker"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Who said, I know what I have to do, but I don't know that I have the strength to do it?", answerId : "a", options: {a: "Kylo Ren", b: "Ben Kenobi", c: "Luke Skywalker", d:"Rey Skywalker"}, ytLink: "https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Palpatine gave the command to execute what Order in Revenge of the Sith?", answerId : "c", options: {a: "Order 56", b: "Order 46", c: "Order 66", d:"Order 76"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "Legend describes what as the hidden world of the sith?", answerId : "d", options: {a: "Degoba", b: "Tattoine", c: "Kashyyk", d:"Exegol"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "What odds does C-3P0 give Han for successfully navigating the asteroid field?", answerId : "a", options: {a: "3720 to 1", b: "5430 to 1", c: "2670 to 1", d:"3500 to 1"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
 )
