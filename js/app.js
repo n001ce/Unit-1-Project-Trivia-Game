@@ -97,14 +97,13 @@ function checkAnswer(e){
     const selectedAnswer = e.target.id
     if(selectedAnswer === trivia.questions[questionCounter].answerId){
         response.style.display = "block"
-        response.style.backgroundImage = "url(`${trivia.correctImg}`)"
+        response.style.backgroundImage= trivia.correctImg
         rightUser += 1
         player.score += 10
     }else{
         response.style.display= "block"
-        response.style.backgroundImage = "url(`${trivia.Img}`)"
+        response.style.backgroundImage = trivia.wrongImg
         wrongUser += 1
-        response.innerText = "INCORRECT"
     }
     questionCounter ++
     setTimeout(render, 1500)
@@ -115,25 +114,21 @@ function backgroundImage(trivia){
     if(trivia === harryPotter){
         quesBox.style.backgroundImage = harryPotter.questionImage
         scoreB.style.backgroundImage = harryPotter.soreB
-        response.style.backgroundImage = harryPotter.correctImg
-        body.style.backgroundImage = harryPotter.backgroundImg
+        bodyEl.style.backgroundImage = harryPotter.backgroundImg
     }else if(trivia === starWars){
         quesBox.style.backgroundImage = starWars.questionImage
         scoreB.style.backgroundImage = starWars.backgroundImg
-        response.style.backgroundImage = starWars.correctImg
-        body.style.backgroundImage = starWars.backgroundImg
+        bodyEl.style.backgroundImage = starWars.backgroundImg
 
     }else if(trivia === lordOfTheRings){
         quesBox.style.backgroundImage = lordOfTheRings.questionImage
-        scoreB.style.backgroundImage = lordOfTheRings.backgroundImg
-        response.style.backgroundImage = lordOfTheRings.correctImg
-        body.style.backgroundImage = lordOfTheRings.backgroundImg
+        scoreB.style.backgroundImage = lordOfTheRings.scoreB
+        bodyEl.style.backgroundImage = lordOfTheRings.backgroundImg
 
     }else{
-        quesBox.style.backgroundImage = marvel.questionImage
-        scoreB.style.backgroundImage = marvel.backgroundImg
-        response.style.backgroundImage = marvel.correctImg
-        body.style.backgroundImage = marvel.backgroundImg
+        quesBox.style.backgroundImage = marvelU.questionImage
+        scoreB.style.backgroundImage = marvelU.backgroundImg
+        bodyEl.style.backgroundImage = marvelU.backgroundImg
 
     }
 }
@@ -181,10 +176,10 @@ harryPotter.questions.push(
     {question : "Who saved a centaur from being strangled by Professor Umbridge in the Forbidden Forest?", answerId : "a", options: {a: "Grawp", b: "Buckbeak", c: "Hagrid", d:"Luna"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     )
 harryPotter.questionImage = "url('css/harryP_question.png')"
-harryPotter.wrongImg = "url('')"
-harryPotter.correctImg = "url('')"
+harryPotter.wrongImg = "url('css/rememberall1.png')"
+harryPotter.correctImg = "url('css/remberall_right.png')"
 harryPotter.scoreB = "url('')"
-harryPotter.backgroundImg = 
+harryPotter.backgroundImg = "url('css/harrypotter_back.jpg')"
 
 const starWars = new Trivia()
 starWars.questions.push(
@@ -200,10 +195,11 @@ starWars.questions.push(
     {question : "What odds does C-3P0 give Han for successfully navigating the asteroid field?", answerId : "a", options: {a: "3720 to 1", b: "5430 to 1", c: "2670 to 1", d:"3500 to 1"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
 )
 
-starWars.questionImage = "url('css/harryP_question.png')"
-starWars.wrongImg = "url('')"
-starWars.correctImg = "url('')"
+starWars.questionImage = "url('css/starW_question.png')"
+starWars.wrongImg = "url('css/wrong-saber.png')"
+starWars.correctImg = "url('css/right-saber.png')"
 starWars.scoreB = "url('')"
+starWars.backgroundImg = "url('css/starwars_back.png')"
 
 const lordOfTheRings = new Trivia()
 lordOfTheRings.questions.push(
@@ -219,6 +215,14 @@ lordOfTheRings.questions.push(
     {question : "Which six characters from the original fellowship reunite in Isengard?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     )
 
+lordOfTheRings.questionImage = "url('css/lotr_question.png')"
+lordOfTheRings.wrongImg = "url('css/bilbo_wrong.png')"
+lordOfTheRings.correctImg = "url('css/bilbo_right.png')"
+lordOfTheRings.scoreB = "url('')"
+lordOfTheRings.backgroundImg = "url('css/lotr_back.jpg')"
+
+
+
 const marvelU = new Trivia()
 marvelU.questions.push(
     {question : "What does shield stand for?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
@@ -233,7 +237,8 @@ marvelU.questions.push(
     {question : "Complete the quote from Tony Stark’s daughter: I love you ____", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
 )
 
-marvelU.questionImage = "url('css/harryP_question.png')"
-marvelU.wrongImg = "url('css/rememberall1.png')"
-marvelU.correctImg = "url('css/rememberall_right.png')"
+marvelU.questionImage = "url('css/marvel_question.png')"
+marvelU.wrongImg = "url('css/marvel_wrong.png')"
+marvelU.correctImg = "url('css/marvel_right.png')"
 marvelU.scoreB = "url('')"
+marvelU.backgroundImg = "url('css/marvel_back.jpg')"

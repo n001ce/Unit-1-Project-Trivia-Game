@@ -1,4 +1,5 @@
 body{
+    background-image: url("/css/movie.jpg");
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
