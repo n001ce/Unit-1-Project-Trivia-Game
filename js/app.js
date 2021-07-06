@@ -97,12 +97,12 @@ function checkAnswer(e){
     const selectedAnswer = e.target.id
     if(selectedAnswer === trivia.questions[questionCounter].answerId){
         response.style.display = "block"
-        response.style.backgroundImage = "url('css/right-saber.png')"
+        response.style.backgroundImage = "url(`${trivia.correctImg}`)"
         rightUser += 1
         player.score += 10
     }else{
         response.style.display= "block"
-        response.style.backgroundImage = "url('css/wrong-saber.png')"
+        response.style.backgroundImage = "url(`${trivia.Img}`)"
         wrongUser += 1
         response.innerText = "INCORRECT"
     }
@@ -113,14 +113,28 @@ function checkAnswer(e){
     
 function backgroundImage(trivia){
     if(trivia === harryPotter){
-        document.querySelector(".quesBox").style.backgroundImage = `url('css/harryP_question.png')`
+        quesBox.style.backgroundImage = harryPotter.questionImage
+        scoreB.style.backgroundImage = harryPotter.soreB
+        response.style.backgroundImage = harryPotter.correctImg
+        body.style.backgroundImage = harryPotter.backgroundImg
     }else if(trivia === starWars){
-        document.querySelector("body").style.backgroundImage = "url('https://pbs.twimg.com/media/EVvJpmgU8AAEq2q.jpg')"
-        document.querySelector(".quesBox").style.backgroundImage = "url('css/starW_question.png')"
+        quesBox.style.backgroundImage = starWars.questionImage
+        scoreB.style.backgroundImage = starWars.backgroundImg
+        response.style.backgroundImage = starWars.correctImg
+        body.style.backgroundImage = starWars.backgroundImg
+
     }else if(trivia === lordOfTheRings){
-        document.querySelector(".quesBox").style.backgroundImage = "url('css/lotr_question.png')"
+        quesBox.style.backgroundImage = lordOfTheRings.questionImage
+        scoreB.style.backgroundImage = lordOfTheRings.backgroundImg
+        response.style.backgroundImage = lordOfTheRings.correctImg
+        body.style.backgroundImage = lordOfTheRings.backgroundImg
+
     }else{
-        document.querySelector(".quesBox").style.backgroundImage = "url('css/marvel_question.png')"
+        quesBox.style.backgroundImage = marvel.questionImage
+        scoreB.style.backgroundImage = marvel.backgroundImg
+        response.style.backgroundImage = marvel.correctImg
+        body.style.backgroundImage = marvel.backgroundImg
+
     }
 }
 
@@ -167,6 +181,11 @@ harryPotter.questions.push(
     {question : "Who saved a centaur from being strangled by Professor Umbridge in the Forbidden Forest?", answerId : "a", options: {a: "Grawp", b: "Buckbeak", c: "Hagrid", d:"Luna"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     )
 harryPotter.questionImage = "url('css/harryP_question.png')"
+harryPotter.wrongImg = "url('')"
+harryPotter.correctImg = "url('')"
+harryPotter.scoreB = "url('')"
+harryPotter.backgroundImg = 
+
 const starWars = new Trivia()
 starWars.questions.push(
     {question : "According to Yoda, there are always how many Sith Lords…no more, no less?", answerId : "a", options: {a: "2", b: "1", c: "3", d:"4"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
@@ -180,7 +199,12 @@ starWars.questions.push(
     {question : "Legend describes what as the hidden world of the sith?", answerId : "d", options: {a: "Degoba", b: "Tattoine", c: "Kashyyk", d:"Exegol"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "What odds does C-3P0 give Han for successfully navigating the asteroid field?", answerId : "a", options: {a: "3720 to 1", b: "5430 to 1", c: "2670 to 1", d:"3500 to 1"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
 )
-starWars.qu
+
+starWars.questionImage = "url('css/harryP_question.png')"
+starWars.wrongImg = "url('')"
+starWars.correctImg = "url('')"
+starWars.scoreB = "url('')"
+
 const lordOfTheRings = new Trivia()
 lordOfTheRings.questions.push(
     {question : "How many rings of power were made?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
@@ -208,3 +232,8 @@ marvelU.questions.push(
     {question : "Who does Steve Rogers give his shield to at the end of Avengers: Endgame?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "Complete the quote from Tony Stark’s daughter: I love you ____", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
 )
+
+marvelU.questionImage = "url('css/harryP_question.png')"
+marvelU.wrongImg = "url('css/rememberall1.png')"
+marvelU.correctImg = "url('css/rememberall_right.png')"
+marvelU.scoreB = "url('')"
