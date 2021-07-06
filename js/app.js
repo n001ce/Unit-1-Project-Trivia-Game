@@ -73,6 +73,11 @@ function startGame(){
     numWrong.innerText = wrongUser
     render()
 }
+function clearState(){
+    quesOp.forEach(ques=>{
+        ques.target.backgroundColor = "white"
+    })
+}
 
 function assists(){
         let iframe = document.createElement('iframe')
@@ -129,6 +134,7 @@ function backgroundImage(trivia){
 function render(){
     backgroundImage(trivia)
     questionSelector(questionCounter)
+    clearState()
     quesOp.forEach(op=>{
         op.style.backgroundColor = "none"
     })
@@ -168,15 +174,15 @@ harryPotter.questions.push(
 const starWars = new Trivia()
 starWars.questions.push(
     {question : "According to Yoda, there are always how many Sith Lords…no more, no less?", answerId : "a", options: {a: "2", b: "1", c: "3", d:"4"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "What is the path to the dark side according to Yoda?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "C-3PO is fluent in over how many forms of communication?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "What is the name of Anakin's stepbrother?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "What is the name of the female member of the Jedi High Council who is of the same species of as Yoda?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Lightsabers are powered by what type of crystal?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What is the path to the dark side according to Yoda?", answerId : "c", options: {a: "Strength", b: "Love", c: "Fear", d:"Emotions"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "C-3PO is fluent in over how many forms of communication?", answerId : "b", options: {a: "Over 1 million", b: "Over 6 million", c: "Over 5 million", d:"Over 9 million"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What is the name of Anakin's stepbrother?", answerId : "d", options: {a: "Kyle Lars", b: "Mik Lars", c: "Skid Lars", d:"Owen Lars"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What is the name of the female member of the Jedi High Council who is of the same species of as Yoda?", answerId : "a", options: {a: "Yaddle", b: "Yodel", c: "Yeet", d:"Yankle"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Lightsabers are powered by what type of crystal?", answerId : "b", options: {a: "Nova Crystal", b: "Kyber Crystal", c: "Quarzite Crystal", d:"Galzez Crystal"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "Who said, I know what I have to do, but I don't know that I have the strength to do it?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink: "https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Palpatine gave the command to execute what Order in Revenge of the Sith?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Legend describes what as the hidden world of the sith?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "What odds does C-3P0 give Han for successfully navigating the asteroid field?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Palpatine gave the command to execute what Order in Revenge of the Sith?", answerId : "c", options: {a: "Ben Kenobi", b: "Luke Skywalker", c: "Kylo Ren", d:"Rey Skywalker"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Legend describes what as the hidden world of the sith?", answerId : "d", options: {a: "Degoba", b: "Tattoine", c: "Kashyyk", d:"Exegol"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What odds does C-3P0 give Han for successfully navigating the asteroid field?", answerId : "a", options: {a: "3720 to 1", b: "5430 to 1", c: "2670 to 1", d:"3500 to 1"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
 )
 
 const lordOfTheRings = new Trivia()
