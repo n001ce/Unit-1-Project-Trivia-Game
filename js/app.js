@@ -55,7 +55,6 @@ marvel.addEventListener("click", function(e){
 init()
 
 function init(){
-    answerBtns.style.display = "none"
     scoreB.style.display = "none"
     quesBox.style.display= "none"
 }
@@ -67,13 +66,20 @@ function startGame(){
     console.log(trivia)
     questionCounter = 0
     changeBtn.style.display = "none"
-    answerBtns.style.display = "flex"
     scoreB.style.display = "flex"
     tickets.style.display="none"
     quesBox.style.display="block"
     numCorrect.innerText = rightUser
     numWrong.innerText = wrongUser
     render()
+}
+
+function assists(){
+        let iframe = document.createElement('iframe')
+        iframe.src = trivia.questions[questionCounter].ytLink.innerHTML
+        document.body.appendChild(iframe)
+        setTimeout(init, 3000)
+        return
 }
 
 function questionSelector(){
@@ -90,11 +96,7 @@ function questionSelector(){
     }
 }
 
-function assist(){
-    let iframe = document.createElement('iframe')
-    iframe.src = trivia.questions[questionCounter].ytLink.innerText
-    document.body.appendChild(iframe)
-}
+    
 
 function checkAnswer(e){
     const selectedAnswer = e.target.id
@@ -141,9 +143,6 @@ function Player(name){
     this.numWrong = 0
     this.numCorrect = 0
     this.assists = 0
-    this.help= function(){
-        
-    }
 }
 
 
@@ -155,16 +154,16 @@ function Trivia(){
 
 const harryPotter= new Trivia()
 harryPotter.questions.push(
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"} ,ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Who was the first goblin Harry ever met?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "What spell did Hermione use to free Harry and Ron from the Devil’s Snare?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "What spell created by the Half Blood Prince did Harry use on Draco Malfoy?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Who did Hermione impersonate with Polyjuice Potion at the Ministry in Deathly Hallows?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Which of the following is not an ingredient in Polyjuice Potion?: A) Wormwood B) Lacewing flies C) Knotgrass D) Fluxweed", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink: "https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Where did Harry live in the Muggle world?", answerId : "d", options: {a: "13 Privet Drive", b: "6 Privet Drive", c: "14 Privet Drive", d:"4 Privet Drive"} ,ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Who was the first goblin Harry ever met?", answerId : "c", options: {a: "Grinnus", b: "Garluff", c: "Griphook", d:"Gurgit"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What spell did Hermione use to free Harry and Ron from the Devil’s Snare?", answerId : "b", options: {a: "Aberto", b: "Lumos Solem", c: "Levicorpus", d:"Obliviate"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What spell created by the Half Blood Prince did Harry use on Draco Malfoy?", answerId : "a", options: {a: "Sectumsempra", b: "Avada Kedavra", c: "Accio", d:"Expelliarmus"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Who did Hermione impersonate with Polyjuice Potion at the Ministry in Deathly Hallows?", answerId : "a", options: {a: "Belatrix Lastrange", b: "Alecto Carrow", c: "Narcissa Malfoy", d:"Dolores Umbridge"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Which of the following is not an ingredient in Polyjuice Potion?", answerId : "b", options: {a: "Lacewing flies", b: "Wormwood", c: "Knotgrass", d:"Fluxweed"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Gilderoy Lockhart tried to use ‘Brackium Emendo’ to fix Harry’s broken bones. What did it actually do to him?", answerId : "b", options: {a: "Turned his leg wooden", b: "Removed his bones entirely", c: "Forced him to speak Parseltongue", d:"Gave him an exquisite singing voice"}, ytLink: "https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Cedric Diggory faced what breed of dragon in the Triwizard Tournament?", answerId : "a", options: {a: "Swedish Short-Snout", b: "Peruvian Vipertooth", c: "Common Welsh Green", d:"Norwegian Ridgeback"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Who poses as Mad-Eye Moody, Harry’s 4th year Defense Against the Dark Arts professor?", answerId : "c", options: {a: "Voldemort", b: "Peter Pettigrew", c: "Barty Crouch Jr.", d:"Sirius Black"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Who saved a centaur from being strangled by Professor Umbridge in the Forbidden Forest?", answerId : "a", options: {a: "Grawp", b: "Buckbeak", c: "Hagrid", d:"Luna"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     )
 const starWars = new Trivia()
 starWars.questions.push(
@@ -176,34 +175,34 @@ starWars.questions.push(
     {question : "Lightsabers are powered by what type of crystal?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "Who said, I know what I have to do, but I don't know that I have the strength to do it?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink: "https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "Palpatine gave the command to execute what Order in Revenge of the Sith?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Legend describes what as the hidden world of the sith?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What odds does C-3P0 give Han for successfully navigating the asteroid field?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
 )
 
 const lordOfTheRings = new Trivia()
 lordOfTheRings.questions.push(
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink: "https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "How many rings of power were made?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Who took the ring after The Dark Lord had been defeated?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "In which Inn does Gandalf ask Frodo and Sam to meet him?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Where is the fellowship of the ring formed?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "How many arrows are shot at Boromir?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Who is controlling King Theoden’s mind through Grima Wormtongue?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Who do Aragorn and company encounter when they enter the Fangorn Forest?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink: "https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "In which direction does Gandalf ask Aragorn to look on the first light on the fifth day?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Aragorn is the descendent of which race (now believed to have passed into legend)?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Which six characters from the original fellowship reunite in Isengard?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     )
 
 const marvelU = new Trivia()
 marvelU.questions.push(
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink: "https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Where did Harry live in the Muggle world?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What does shield stand for?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "How many possibilities did Doctor Strange see for the outcome of the Infinity War?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Which Infinity Stone does Thanos get first?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Who does not disappear from “The Snap?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What AI replaces JARVIS?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What is the first song we see Peter Quill dancing to in Guardians of the Galaxy?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What was the first Iron Man suit called?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink: "https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "The tesseract houses the _____ stone.", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Who does Steve Rogers give his shield to at the end of Avengers: Endgame?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Complete the quote from Tony Stark’s daughter: I love you ____", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
 )
