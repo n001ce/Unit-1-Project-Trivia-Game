@@ -136,7 +136,7 @@ main{
     list-style-type: none;
     margin-top: 20px;
 }
-.option1, .option2, .option3, .option4{
+.option{
     border: 2px solid black;
     margin: 7px;
     padding-left: 10px;
@@ -165,8 +165,4 @@ main{
 }
 .scoreB{
     list-style: none;
-}
-
-#starW :hover{
-    
 }

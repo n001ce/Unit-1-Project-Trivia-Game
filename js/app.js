@@ -2,21 +2,20 @@ const harryP = document.getElementById("harryP")
 const starW = document.getElementById("starW")
 const lotr = document.getElementById("lotr")
 const marvel = document.getElementById("marvel")
+const tickets = document.querySelector(".tickets")
+const changeBtn = document.getElementById("changeBtn")
+
 let scoreB = document.querySelector(".score")
 let numCorrect = document.getElementById("numCorrect")
 let numWrong = document.getElementById("numWrong")
 let quesOp = document.querySelectorAll("quesOp")
 let quesBox = document.querySelector(".quesBox")
-let tickets = document.querySelector(".tickets")
-let changeBtn = document.getElementById("changeBtn")
 let questionCounter, trivia
-let assistsUsed = document.querySelector("#helpUsed")
 let remainingQ = document.querySelector("#remainingQ")
 let response = document.querySelector(".response")
 let bodyEl = document.querySelector("body")
-let helpBtn = document.getElementById("help")
-let mainEl = document.querySelector("main")
 let audio = document.createElement('audio')
+let newAudio = document.createElement("audio")
 
 document.getElementById("a").addEventListener("click", checkAnswer)
 document.getElementById("b").addEventListener("click", checkAnswer)
@@ -62,11 +61,9 @@ let rightUser = 0, wrongUser = 0
 
 function startGame(){
     audio.pause()
-    let newAudio = document.createElement("audio")
     newAudio.src = trivia.previewSound
     newAudio.play()
     player = new Player
-    console.log(trivia)
     questionCounter = 0
     changeBtn.style.display = "none"
     scoreB.style.display = "flex"
@@ -76,18 +73,12 @@ function startGame(){
     numWrong.innerText = wrongUser
     render()
 }
+
 function clearState(){
     response.style.display = "none"
     audio.pause()
 }
 
-function assists(){
-        let iframe = document.createElement('iframe')
-        iframe.src = trivia.questions[questionCounter].ytLink.innerHTML
-        document.body.appendChild(iframe)
-        setTimeout(init, 3000)
-        return
-}
 
 function questionSelector(){
     if(questionCounter < trivia.questions.length){
@@ -109,6 +100,7 @@ function checkAnswer(e){
     if(selectedAnswer === trivia.questions[questionCounter].answerId){
         response.style.display = "block"
         response.style.backgroundImage= trivia.correctImg
+        quesOp.forEach((option)=>{option.disable = true})
         rightUser += 1
         player.score += 10
     }else{
