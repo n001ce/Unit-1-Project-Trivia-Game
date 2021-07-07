@@ -14,6 +14,9 @@ let assistsUsed = document.querySelector("#helpUsed")
 let remainingQ = document.querySelector("#remainingQ")
 let response = document.querySelector(".response")
 let bodyEl = document.querySelector("body")
+let helpBtn = document.getElementById("help")
+let mainEl = document.querySelector("main")
+let audio = document.createElement('audio')
 
 document.getElementById("a").addEventListener("click", checkAnswer)
 document.getElementById("b").addEventListener("click", checkAnswer)
@@ -43,11 +46,14 @@ marvel.addEventListener("click", function(e){
     startGame()
     return trivia
     })
-    
+
 
 init()
 
 function init(){
+    audio.src = 'css/audience.mp3'
+    bodyEl.appendChild(audio)
+    audio.play()
     scoreB.style.display = "none"
     quesBox.style.display= "none"
 }
@@ -55,6 +61,10 @@ function init(){
 let rightUser = 0, wrongUser = 0
 
 function startGame(){
+    audio.pause()
+    let newAudio = document.createElement("audio")
+    newAudio.src = trivia.previewSound
+    newAudio.play()
     player = new Player
     console.log(trivia)
     questionCounter = 0
@@ -68,6 +78,7 @@ function startGame(){
 }
 function clearState(){
     response.style.display = "none"
+    audio.pause()
 }
 
 function assists(){
@@ -175,6 +186,7 @@ harryPotter.questions.push(
     {question : "Who poses as Mad-Eye Moody, Harry’s 4th year Defense Against the Dark Arts professor?", answerId : "c", options: {a: "Voldemort", b: "Peter Pettigrew", c: "Barty Crouch Jr.", d:"Sirius Black"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     {question : "Who saved a centaur from being strangled by Professor Umbridge in the Forbidden Forest?", answerId : "a", options: {a: "Grawp", b: "Buckbeak", c: "Hagrid", d:"Luna"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     )
+harryPotter.previewSound = 'css/harryP_theme.mp3'
 harryPotter.questionImage = "url('css/harryP_question.png')"
 harryPotter.wrongImg = "url('css/rememberall1.png')"
 harryPotter.correctImg = "url('css/remberall_right.png')"
@@ -183,18 +195,18 @@ harryPotter.backgroundImg = "url('css/harrypotter_back.jpg')"
 
 const starWars = new Trivia()
 starWars.questions.push(
-    {question : "According to Yoda, there are always how many Sith Lords…no more, no less?", answerId : "a", options: {a: "2", b: "1", c: "3", d:"4"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "What is the path to the dark side according to Yoda?", answerId : "c", options: {a: "Strength", b: "Love", c: "Fear", d:"Emotions"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "C-3PO is fluent in over how many forms of communication?", answerId : "b", options: {a: "Over 1 million", b: "Over 6 million", c: "Over 5 million", d:"Over 9 million"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "According to Yoda, there are always how many Sith Lords…no more, no less?", answerId : "a", options: {a: "2", b: "1", c: "3", d:"4"}},
+    {question : "What is the path to the dark side according to Yoda?", answerId : "c", options: {a: "Strength", b: "Love", c: "Fear", d:"Emotions"}},
+    {question : "C-3PO is fluent in over how many forms of communication?", answerId : "b", options: {a: "Over 1 million", b: "Over 6 million", c: "Over 5 million", d:"Over 9 million"}},
     {question : "What is the name of Anakin's stepbrother?", answerId : "d", options: {a: "Kyle Lars", b: "Mik Lars", c: "Skid Lars", d:"Owen Lars"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "What is the name of the female member of the Jedi High Council who is of the same species of as Yoda?", answerId : "a", options: {a: "Yaddle", b: "Yodel", c: "Yeet", d:"Yankle"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What is the name of the female member of the Jedi High Council who is of the same species of as Yoda?", answerId : "a", options: {a: "Yaddle", b: "Yodel", c: "Yeet", d:"Yankle"}},
     {question : "Lightsabers are powered by what type of crystal?", answerId : "b", options: {a: "Nova Crystal", b: "Kyber Crystal", c: "Quarzite Crystal", d:"Galzez Crystal"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Who said, I know what I have to do, but I don't know that I have the strength to do it?", answerId : "a", options: {a: "Kylo Ren", b: "Ben Kenobi", c: "Luke Skywalker", d:"Rey Skywalker"}, ytLink: "https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "Palpatine gave the command to execute what Order in Revenge of the Sith?", answerId : "c", options: {a: "Order 56", b: "Order 46", c: "Order 66", d:"Order 76"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "Who said, I know what I have to do, but I don't know that I have the strength to do it?", answerId : "a", options: {a: "Kylo Ren", b: "Ben Kenobi", c: "Luke Skywalker", d:"Rey Skywalker"}},
+    {question : "Palpatine gave the command to execute what Order in Revenge of the Sith?", answerId : "c", options: {a: "Order 56", b: "Order 46", c: "Order 66", d:"Order 76"}},
     {question : "Legend describes what as the hidden world of the sith?", answerId : "d", options: {a: "Degoba", b: "Tattoine", c: "Kashyyk", d:"Exegol"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
-    {question : "What odds does C-3P0 give Han for successfully navigating the asteroid field?", answerId : "a", options: {a: "3720 to 1", b: "5430 to 1", c: "2670 to 1", d:"3500 to 1"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
+    {question : "What odds does C-3P0 give Han for successfully navigating the asteroid field?", answerId : "a", options: {a: "3720 to 1", b: "5430 to 1", c: "2670 to 1", d:"3500 to 1"}},
 )
-
+starWars.previewSound = 'css/starw_theme.mp3'
 starWars.questionImage = "url('css/starW_question.png')"
 starWars.wrongImg = "url('css/wrong-saber.png')"
 starWars.correctImg = "url('css/right-saber.png')"
@@ -215,6 +227,7 @@ lordOfTheRings.questions.push(
     {question : "Which six characters from the original fellowship reunite in Isengard?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
     )
 
+lordOfTheRings.previewSound = 'css/lotr_theme.mp3'
 lordOfTheRings.questionImage = "url('css/lotr_question.png')"
 lordOfTheRings.wrongImg = "url('css/bilbo_wrong.png')"
 lordOfTheRings.correctImg = "url('css/bilbo_right.png')"
@@ -237,6 +250,7 @@ marvelU.questions.push(
     {question : "Complete the quote from Tony Stark’s daughter: I love you ____", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}, ytLink :"https://www.youtube.com/watch?v=yQIFkMlDF4M"},
 )
 
+marvelU.previewSound = 'css/marvel_theme.mp3'
 marvelU.questionImage = "url('css/marvel_question.png')"
 marvelU.wrongImg = "url('css/marvel_wrong.png')"
 marvelU.correctImg = "url('css/marvel_right.png')"

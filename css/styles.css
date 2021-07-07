@@ -56,7 +56,7 @@ main{
 }
 
 
-#changeBtn, .help{
+#changeBtn{
     background-color: grey;
     height: 50px;
     width: 70px;
@@ -64,6 +64,15 @@ main{
     text-align: center;
 }
 
+#help{
+    background-color: yellow;
+    height: 50px;
+    width: 70px;
+    font-style: bold;
+    text-align: center;
+    align-self:center;
+    margin-top: 50px;
+}
 
 .tickets{
     background-color: rgba(236, 236, 236, 0.74);
@@ -156,4 +165,8 @@ main{
 }
 .scoreB{
     list-style: none;
+}
+
+#starW :hover{
+    
 }
