@@ -1,18 +1,20 @@
 body{
-    height: 100vh;
-    width: 100vw;
+    height: 100em;
+    width: 100em;
     background-color: black;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;;
 }
 
 main{
-    height: 100vh;
-    width: 100vw;
+
+    height: 60em;
+    width: 90em;
     display: grid;
     grid-template-areas: 
         "header"
         "board"
-        "board"
-        "input"
         "score";
     justify-content: center;
     justify-items: center;
@@ -30,7 +32,7 @@ main{
 .description{
     text-align: center;
     margin-top: 300px;
-    max-width: 300px;
+    width: 500px;
     grid-area: header;
     font-size: 20px;
     color: white;
@@ -38,35 +40,38 @@ main{
 
 .board{
     grid-area: board;
-    height: 500px;
-    width: 800px;
+    min-height: 400px;
+    min-width: 600px;
 }
 .score{
     grid-area: score;
     height: 100px;
-    width: 500px;
-    background-color:rgba(155, 231, 56, 0.76);
+    width: 600px;
+    background-color:rgba(78, 74, 74, 0.856);
     margin-right: 10px;
     padding-top: 50px;
-    margin-top: -29px;
-    border-radius: 100px;
+    border-radius: 50px;
+    box-shadow: rgba(255, 197, 8, 0.863)  3px 10px 20px;
+
+
 }
 
 
 
 
 #changeBtn{
-    background-color: grey;
+    background-color: rgb(255, 6, 6);
     height: 50px;
     width: 70px;
     align-items: center;
     text-align: center;
     grid-area: board;
+    color: white;
+    font-style: bold;
 }
 
 
 .tickets{
-    justify-items: center;
     grid-area: board;
     display: grid;
     grid-template-columns: 1fr, 1fr;
@@ -74,6 +79,7 @@ main{
     grid-template-areas:
     "starW harryP"
     "lotr  marvel";
+    width: 100%;
 }
 
 #starW{
@@ -83,8 +89,10 @@ main{
 }
 
 #lotr{
+    background-position: center;
     grid-area: lotr;
-    margin-left: 106px;
+    margin-left: 40px;
+    background-size: fill;
     
 }
 #harryP{
@@ -115,7 +123,6 @@ main{
     font-size: 20px;
 }
 .question{
-    background-color:rgba(57, 149, 255, 0.767);
     color: rgba(255, 254, 254, 0.788);
     width: 500px;
     padding-top: 10px;
@@ -169,4 +176,15 @@ main{
     display: inline-flex;
     column-gap: 20px;
     flex-direction: row;
+    font-size: 20px;
+    color: white;
+}
+
+#timer{
+    text-align: center;
+    grid-area: header;
+    font-size: 30px;
+    color: white;
+    height: 100px;
+    margin-top: 200px;
 }

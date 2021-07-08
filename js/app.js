@@ -16,6 +16,7 @@ let response = document.querySelector(".response")
 let bodyEl = document.querySelector("body")
 let audio = document.createElement('audio')
 let newAudio = document.createElement("audio")
+let timerEl = document.getElementById("timer")
 
 document.getElementById("a").addEventListener("click", checkAnswer)
 document.getElementById("b").addEventListener("click", checkAnswer)
@@ -50,6 +51,7 @@ marvel.addEventListener("click", function(e){
 init()
 
 function init(){
+    newAudio.pause()
     audio.src = 'css/audience.mp3'
     audio.play()
     scoreB.style.display = "none"
@@ -60,11 +62,24 @@ function init(){
     bodyEl.style.backgroundImage = "none"
 }
 
-let rightUser = 0, wrongUser = 0
+let timeLeft = 60
+function countDown(){
+    setInterval(function(){
+        if(timeLeft <= 0){
+            clearInterval(timeLeft = 0)
+            timerEl.innerText = `Times Up`
+            endGame()
+            return
+        }
+        timerEl.innerText = `Time left:` + `\n` + `${timeLeft}`
+        timeLeft -=1
+    }, 1000)
+    }
 
 function startGame(){
+    timerEl.style.display = "block"
+    countDown()
     changeBtn.style.display = "flex"
-
     document.querySelector(".description").style.display = "none"
     audio.pause()
     newAudio.src = trivia.previewSound
@@ -74,8 +89,8 @@ function startGame(){
     scoreB.style.display = "flex"
     tickets.style.display="none"
     quesBox.style.display="block"
-    numCorrect.innerText = rightUser
-    numWrong.innerText = wrongUser
+    numCorrect.innerText = player.numCorrects
+    numWrong.innerText = player.numWrong
     render()
 }
 
@@ -83,27 +98,25 @@ function clearState(){
     response.style.display = "none"
     audio.pause()
     quesBox.style.boxShadow="none"
-    quesOp.style.display = "block"
 
 }
 
 
 function questionSelector(){
     if(questionCounter < trivia.questions.length){
+    quesOp.style.display = "block"
     questionEl.innerText = trivia.questions[questionCounter].question
     document.querySelector("#a").innerText = trivia.questions[questionCounter].options.a
     document.querySelector("#b").innerText = trivia.questions[questionCounter].options.b
     document.querySelector("#c").innerText = trivia.questions[questionCounter].options.c
     document.querySelector("#d").innerText = trivia.questions[questionCounter].options.d
     }else{
-        questionEl.innerText = `GAME OVER` + `\n` + `Total Score :` + `\n` + `${player.score}` + `\n` + `${winMessage()}`
-        quesOp.style.display = "none"
-        changeBtn.style.display = "block"
+        endGame()
     }
 }
 
 function winMessage(){
-    if(player.score > 90){
+    if(player.score >= 90){
         return "Put The DVD Down Already"
     }else if(player.score > 60 && player.score <  90){
         return "It's been a while hasn't it?"
@@ -119,14 +132,14 @@ function checkAnswer(e){
         response.style.backgroundImage= trivia.correctImg
         quesBox.style.boxShadow="rgb(136, 230, 74) 10px 4px 20px 5px, rgb(136, 230, 74) -10px 4px 20px 5px, rgb(136, 230, 74) 10px -4px 20px 5px, rgb(136, 230, 74) -10px -4px 20px 5px"
         quesOp.style.display = "none"
-        rightUser += 1
+        player.numCorrect += 1
         player.score += 10
     }else {
         quesOp.style.display = "none"
         quesBox.style.boxShadow = "red 10px 4px 20px 5px, red 10px 4px 20px 5px, red 10px -4px 20px 5px, red -10px -4px 20px 5px"
         response.style.display= "block"
         response.style.backgroundImage = trivia.wrongImg
-        wrongUser += 1
+        player.numWrong += 1
     } 
     questionCounter++
     setTimeout(render, 2000)
@@ -136,28 +149,34 @@ function checkAnswer(e){
     
 }
 
+function endGame(){
+    quesOp.style.display = "none"
+    questionEl.innerText = `GAME OVER` + `\n` + `Total Score :` + `\n` + `${player.score}` + `\n` + `${winMessage()}`
+}
+
 
     
 function backgroundImage(trivia){
     if(trivia === harryPotter){
         bodyEl.style.backgroundImage = harryPotter.backgroundImg
+        questionEl.style.backgroundColor = harryPotter.questionBox
     }else if(trivia === starWars){
         bodyEl.style.backgroundImage = starWars.backgroundImg
-
+        questionEl.style.backgroundColor = starWars.questionBox
     }else if(trivia === lordOfTheRings){
         bodyEl.style.backgroundImage = lordOfTheRings.backgroundImg
-
+        questionEl.style.backgroundColor = lordOfTheRings.questionBox
     }else{
         bodyEl.style.backgroundImage = marvelU.backgroundImg
-
+        questionEl.style.backgroundColor = marvelU.questionBox
     }
 }
 
 function render(){
     backgroundImage(trivia)
     questionSelector(questionCounter)
-    numCorrect.innerText = rightUser
-    numWrong.innerText = wrongUser
+    numCorrect.innerText = player.numCorrect
+    numWrong.innerText = player.numWrong
     remainingQ.innerText = trivia.questions.length - questionCounter
     clearState()
 }
@@ -196,7 +215,7 @@ harryPotter.questions.push(
 harryPotter.previewSound = 'css/harryP_theme.mp3'
 harryPotter.wrongImg = "url('css/rememberall1.png')"
 harryPotter.correctImg = "url('css/remberall_right.png')"
-harryPotter.scoreB = "url('')"
+harryPotter.questionBox = "rgba(245, 181, 45, 0.726)"
 harryPotter.backgroundImg = "url('css/harrypotter_back.jpg')"
 
 const starWars = new Trivia()
@@ -216,7 +235,7 @@ starWars.questions.push(
 starWars.previewSound = 'css/starw_theme.mp3'
 starWars.wrongImg = "url('css/wrong-saber.png')"
 starWars.correctImg = "url('css/right-saber.png')"
-starWars.scoreB = "url('')"
+starWars.questionBox = "rgba(57, 149, 255, 0.767)"
 starWars.backgroundImg = "url('css/starback.jpg')"
 
 const lordOfTheRings = new Trivia()
@@ -236,7 +255,7 @@ lordOfTheRings.questions.push(
 lordOfTheRings.previewSound = 'css/lotr_theme.mp3'
 lordOfTheRings.wrongImg = "url('css/bilbo_wrong.png')"
 lordOfTheRings.correctImg = "url('css/bilbo_right.png')"
-lordOfTheRings.scoreB = "url('')"
+lordOfTheRings.questionBox = "rgba(136, 194, 98, 0.808)"
 lordOfTheRings.backgroundImg = "url('css/lotr_back.jpg')"
 
 const marvelU = new Trivia()
@@ -256,5 +275,5 @@ marvelU.questions.push(
 marvelU.previewSound = 'css/marvel_theme.mp3'
 marvelU.wrongImg = "url('css/marvel_wrong.png')"
 marvelU.correctImg = "url('css/marvel_right.png')"
-marvelU.scoreB = "url('')"
+marvelU.questionBox= "rgba(255, 0, 0, 0.466)"
 marvelU.backgroundImg = "url('css/marvel_back.jpg')"
