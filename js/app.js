@@ -48,7 +48,7 @@ marvel.addEventListener("click", function(e){
 init()
 
 function init(){
-    timeLeft = 60
+    timeLeft = 10
     timerEl.style.display = "none"
     newAudio.pause()
     audio.src = 'css/audience.mp3'
@@ -61,19 +61,18 @@ function init(){
     bodyEl.style.backgroundImage = "none"
 }
 
-
-function countDown(){
-        if(timeLeft <= 0){
-            timerEl.style.display = "none"
-            return endGame()
-        }else{
-            timer = setInterval(function(){
-            timerEl.innerText = `Time left:` + `\n` + `${timeLeft}`
-            timeLeft--
-    }, 1000)
+function CheckTime() {
+    timerEl.innerHTML = 'Time Left:\n ' + timeLeft
+  
+    if (timeLeft <= 0) {
+      endGame();
+    } else {
+      timeLeft--
+      timer = setTimeout(CheckTime, 1000);
     }
-}
-let timer = setTimeout(countDown, 1000)
+  }
+timer = setTimeout(CheckTime, 1000);
+  
 
 function startGame(){
     timer
@@ -151,7 +150,6 @@ function endGame(){
     quesOp.style.display = "none"
     timerEl.style.display = "none"
     questionEl.innerText = `GAME OVER` + `\n` + `Total Score :` + `\n` + `${player.score}` + `\n` + `${winMessage()}` + `\n` + `${timerEl.innerText}`
-    clearInterval(timer)
 }
 
 
