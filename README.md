@@ -1,4 +1,4 @@
-# Saga-Trivia-Game
+# FantaSci Trivia
 
 ## Objective:
 ### Create a browser-based quiz game using HTML, CSS, and JS
@@ -21,20 +21,62 @@ click here to play
 * The scoreboard will keep track of how many questions you get right, wrong, and the amount of questions left on the quiz. 
 
 * During play, if you get the answer correct the border of the question box will glow green but red if you are wrong. 
+  
+* Each category comes with visual references for correct answers and wrong answers. See below for details.
+
+    * Harry Potter :
+        * Correct: 
+            
+            ![hp-right](/css/remberall_right.png)
+
+        * Wrong: 
+  
+            ![hp-wrong](/css/rememberall1.png)
+    
+    * Star Wars :
+        * Correct: 
+            
+            ![hp-right](/css/right-saber.png)
+
+        * Wrong: 
+  
+            ![hp-wrong](/css/wrong-saber.png)
+    
+    * Lord of The Rings :
+        * Correct: 
+            
+            ![hp-right](/css/bilbo_right.png)
+
+        * Wrong: 
+  
+            ![hp-wrong](/css/bilbo_wrong.png)
+
+    * Marvel :
+        * Correct: 
+            
+            ![hp-right](/css/marvel_right.png)
+
+        * Wrong: 
+  
+            ![hp-wrong](/css/marvel_wrong.png)
+
+
+
 
 * You have 60 seconds to answer 10 questions. Your score will be tallied up at the end and displayed to you when you have completed the quiz.
 
 #
 
-## Prototype View:
-
-#
 
 ## The Initial Wireframe:
 
 #
 
 ## The Final Outlook
+![HomePage](/css/main_menu.PNG)
+![StarWars](/css/Star_Wars.PNG)
+![HarryP](/css/Harry_P.PNG)
+![MarvelU](/css/MarvelU.PNG)
 #
 
 ## Technology implemented:
