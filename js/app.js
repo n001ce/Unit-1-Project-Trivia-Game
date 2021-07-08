@@ -48,7 +48,8 @@ marvel.addEventListener("click", function(e){
 init()
 
 function init(){
-    timeLeft = 10
+    clearTimeout(timer)
+    document.querySelector(".title").innerText = "FantaSci Trivia"
     timerEl.style.display = "none"
     newAudio.pause()
     audio.src = 'css/audience.mp3'
@@ -62,20 +63,20 @@ function init(){
 }
 
 function CheckTime() {
-    timerEl.innerHTML = 'Time Left:\n ' + timeLeft
-  
+    timerEl.innerHTML = `Time Left: `+ `\n ` + `${timeLeft}`  
     if (timeLeft <= 0) {
-      endGame();
+        endGame();
     } else {
       timeLeft--
       timer = setTimeout(CheckTime, 1000);
     }
   }
-timer = setTimeout(CheckTime, 1000);
+
   
 
 function startGame(){
-    timer
+    timeLeft = 60
+    timer = setTimeout(CheckTime, 1000);
     timerEl.style.display = "block"
     changeBtn.style.display = "flex"
     document.querySelector(".description").style.display = "none"
@@ -139,32 +140,32 @@ function checkAnswer(e){
         player.numWrong += 1
     } 
     questionCounter++
-    setTimeout(render, 2000)
-
-    
-    
-    
+    setTimeout(render, 1500)
 }
 
 function endGame(){
     quesOp.style.display = "none"
     timerEl.style.display = "none"
-    questionEl.innerText = `GAME OVER` + `\n` + `Total Score :` + `\n` + `${player.score}` + `\n` + `${winMessage()}` + `\n` + `${timerEl.innerText}`
+    questionEl.innerText = `GAME OVER` + `\n` + `Total Score :` + `\n` + `${player.score}` + `\n` + `${winMessage()}` + `\n` + `${timerEl.innerText} seconds`
 }
 
 
     
 function backgroundImage(trivia){
     if(trivia === harryPotter){
+        document.querySelector(".title").innerText = "Harry Potter"
         bodyEl.style.backgroundImage = harryPotter.backgroundImg
         questionEl.style.backgroundColor = harryPotter.questionBox
     }else if(trivia === starWars){
+        document.querySelector(".title").innerText = "Star Wars"
         bodyEl.style.backgroundImage = starWars.backgroundImg
         questionEl.style.backgroundColor = starWars.questionBox
     }else if(trivia === lordOfTheRings){
+        document.querySelector(".title").innerText = "Lord Of The Rings"
         bodyEl.style.backgroundImage = lordOfTheRings.backgroundImg
         questionEl.style.backgroundColor = lordOfTheRings.questionBox
     }else{
+        document.querySelector(".title").innerText = "Marvel Universe"
         bodyEl.style.backgroundImage = marvelU.backgroundImg
         questionEl.style.backgroundColor = marvelU.questionBox
     }
@@ -238,16 +239,16 @@ starWars.backgroundImg = "url('css/starback.jpg')"
 
 const lordOfTheRings = new Trivia()
 lordOfTheRings.questions.push(
-    {question : "How many rings of power were made?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "Who took the ring after The Dark Lord had been defeated?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "In which Inn does Gandalf ask Frodo and Sam to meet him?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "Where is the fellowship of the ring formed?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "How many arrows are shot at Boromir?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "Who is controlling King Theoden’s mind through Grima Wormtongue?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "Who do Aragorn and company encounter when they enter the Fangorn Forest?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "In which direction does Gandalf ask Aragorn to look on the first light on the fifth day?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "Aragorn is the descendent of which race (now believed to have passed into legend)?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "Which six characters from the original fellowship reunite in Isengard?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
+    {question : "How many rings of power were made?", answerId : "d", options: {a: "one", b: "Three for men, nine for dwarves, seven for elves", c: "Three for the dwarves, nine for elves, seven for men", d:"Three for the elves, seven for dwarves and nine for men."}},
+    {question : "Who took the ring after The Dark Lord had been defeated?", answerId : "c", options: {a: "Bilbo Baggins", b: "Gollum", c: "Isildur", d:"Boromir"}},
+    {question : "In which Inn does Gandalf ask Frodo and Sam to meet him?", answerId : "c", options: {a: "The Salty Dog", b: "The Green Hill", c: "The Prancing Pony", d:"The Green Dragon"}},
+    {question : "Where is the fellowship of the ring formed?", answerId : "b", options: {a: "The Shire", b: "Rivendell", c: "Fangorn Forest", d:"Gondor"}},
+    {question : "How many arrows are shot at Boromir?", answerId : "a", options: {a: "3", b: "2", c: "4", d:"1"}},
+    {question : "Who is controlling King Theoden’s mind through Grima Wormtongue?", answerId : "d", options: {a: "Bolg", b: "Uruk-Hai", c: "Sauron", d:"Saruman"}},
+    {question : "Who do Aragorn and company encounter when they enter the Fangorn Forest?", answerId : "b", options: {a: "Frodo", b: "Gandalf the White", c: "Pippin and Merry", d:"Acharnion"}},
+    {question : "In which direction does Gandalf ask Aragorn to look on the first light on the fifth day?", answerId : "c", options: {a: "North", b: "West", c: "East", d:"South"}},
+    {question : "Aragorn is the descendent of which race (now believed to have passed into legend)?", answerId : "b", options: {a:"Elves", b: "Numenor", c: "Maiar", d:"Valar"}},
+    {question : "Which six characters from the original fellowship reunite in Isengard?", answerId : "a", options: {a: "Merry, Pippin, Aragorn, Gimli, Legolas and Gandalf", b: "Merry, Pippin, Frodo, Sam, Legolas and Gandalf", c: "Frodo, Sam, Aragorn, Boromir, Legolas and Gandalf", d:"Boromir, Aragon, Bilbo, Frodo, Sam and Gandalf"}},
     )
 
 lordOfTheRings.previewSound = 'css/lotr_theme.mp3'
@@ -258,16 +259,16 @@ lordOfTheRings.backgroundImg = "url('css/lotr_back.jpg')"
 
 const marvelU = new Trivia()
 marvelU.questions.push(
-    {question : "What does shield stand for?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "How many possibilities did Doctor Strange see for the outcome of the Infinity War?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "Which Infinity Stone does Thanos get first?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "Who does not disappear from “The Snap?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "What AI replaces JARVIS?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "What is the first song we see Peter Quill dancing to in Guardians of the Galaxy?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "What was the first Iron Man suit called?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "The tesseract houses the _____ stone.", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "Who does Steve Rogers give his shield to at the end of Avengers: Endgame?", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
-    {question : "Complete the quote from Tony Stark’s daughter: I love you ____", answerId : "a", options: {a: "this is a", b: "this is b", c: "this is c", d:"this is d"}},
+    {question : "In which movie did Spider-Man make his first appearance in the MCU?", answerId : "a", options: {a: "Captian America Civil War", b: "Iron Man 3", c: "Avengers Age Of Ultron", d:"Spider-Man Homecoming"}},
+    {question : "How many possibilities did Doctor Strange see for the outcome of the Infinity War?", answerId : "b", options: {a: "10 million 4 hundred and 11", b: "14 million, 6 hundred and 5 ", c: "2 million 3 hundred and 2", d:"15 million"}},
+    {question : "Which Infinity Stone does Thanos get first?", answerId : "d", options: {a: "Time", b: "Reality", c: "Space", d:"Power"}},
+    {question : "Who does not disappear from “The Snap?", answerId : "c", options: {a: "Bucky Barnes", b: "Wanda Maximoff", c: "Vision", d:"Peter Parker"}},
+    {question : "What AI replaces JARVIS?", answerId : "b", options: {a: "Wednesday", b: "Friday", c: "Monday", d:"JARVIS II"}},
+    {question : "What is the first song we see Peter Quill dancing to in Guardians of the Galaxy?", answerId : "a", options: {a: "Come and Get Your Love", b: "Hooked on a Feeling", c: "Spirit in the Sky", d:"I'm Not in Love"}},
+    {question : "What was the first Iron Man suit called?", answerId : "d", options: {a: "Original", b: "Iron Man", c: "version 1.0", d:"Mark I"}},
+    {question : "The tesseract houses the _____ stone.", answerId : "b", options: {a: "Reality", b: "Space", c: "Time", d:"Power"}},
+    {question : "Who does Steve Rogers give his shield to at the end of Avengers: Endgame?", answerId : "c", options: {a: "Tony Stark", b: "Thor", c: "Sam", d:"Bucky"}},
+    {question : "Complete the quote from Tony Stark’s daughter: I love you ____", answerId : "a", options: {a: "3000", b: "2000", c: "5000", d:"4000"}},
 )
 
 marvelU.previewSound = 'css/marvel_theme.mp3'
