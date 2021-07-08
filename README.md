@@ -5,7 +5,7 @@
 #
 
 ## PLAY THE GAME
-click [here](https://fantaSci-trivia.surge.sh) to play
+click [here](https://www.fantaSci-trivia.surge.sh) to play
 
 #
 ## Motivation: 
