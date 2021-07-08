@@ -2,13 +2,13 @@ const harryP = document.getElementById("harryP")
 const starW = document.getElementById("starW")
 const lotr = document.getElementById("lotr")
 const marvel = document.getElementById("marvel")
-const tickets = document.querySelector(".tickets")
 const changeBtn = document.getElementById("changeBtn")
-
+const tickets = document.querySelector(".tickets")
+let questionEl = document.querySelector(".question")
 let scoreB = document.querySelector(".score")
 let numCorrect = document.getElementById("numCorrect")
 let numWrong = document.getElementById("numWrong")
-let quesOp = document.querySelectorAll("quesOp")
+let quesOp = document.querySelector(".quesOp")
 let quesBox = document.querySelector(".quesBox")
 let questionCounter, trivia
 let remainingQ = document.querySelector("#remainingQ")
@@ -54,17 +54,23 @@ function init(){
     audio.play()
     scoreB.style.display = "none"
     quesBox.style.display= "none"
+    changeBtn.style.display = "none"
+    tickets.style.display = "grid"
+    document.querySelector(".description").style.display = "block"
+    bodyEl.style.backgroundImage = "none"
 }
 
 let rightUser = 0, wrongUser = 0
 
 function startGame(){
+    changeBtn.style.display = "flex"
+
+    document.querySelector(".description").style.display = "none"
     audio.pause()
     newAudio.src = trivia.previewSound
     newAudio.play()
     player = new Player
     questionCounter = 0
-    changeBtn.style.display = "none"
     scoreB.style.display = "flex"
     tickets.style.display="none"
     quesBox.style.display="block"
@@ -76,19 +82,22 @@ function startGame(){
 function clearState(){
     response.style.display = "none"
     audio.pause()
+    quesBox.style.boxShadow="none"
+    quesOp.style.display = "block"
+
 }
 
 
 function questionSelector(){
     if(questionCounter < trivia.questions.length){
-    document.querySelector(".question").innerText = trivia.questions[questionCounter].question
+    questionEl.innerText = trivia.questions[questionCounter].question
     document.querySelector("#a").innerText = trivia.questions[questionCounter].options.a
     document.querySelector("#b").innerText = trivia.questions[questionCounter].options.b
     document.querySelector("#c").innerText = trivia.questions[questionCounter].options.c
     document.querySelector("#d").innerText = trivia.questions[questionCounter].options.d
     }else{
-        document.querySelector(".question").innerText = `GAME OVER` + `\n` + `Total Score :` + `\n` + `${player.score}` + `\n` + `${winMessage()}`
-        document.querySelector(".quesOp").style.display = "none"
+        questionEl.innerText = `GAME OVER` + `\n` + `Total Score :` + `\n` + `${player.score}` + `\n` + `${winMessage()}`
+        quesOp.style.display = "none"
         changeBtn.style.display = "block"
     }
 }
@@ -105,42 +114,40 @@ function winMessage(){
 
 function checkAnswer(e){
     const selectedAnswer = e.target.id
-    
     if(selectedAnswer === trivia.questions[questionCounter].answerId){
         response.style.display = "block"
         response.style.backgroundImage= trivia.correctImg
+        quesBox.style.boxShadow="rgb(136, 230, 74) 10px 4px 20px 5px, rgb(136, 230, 74) -10px 4px 20px 5px, rgb(136, 230, 74) 10px -4px 20px 5px, rgb(136, 230, 74) -10px -4px 20px 5px"
+        quesOp.style.display = "none"
         rightUser += 1
         player.score += 10
-        questionCounter ++
-    }else{
+    }else {
+        quesOp.style.display = "none"
+        quesBox.style.boxShadow = "red 10px 4px 20px 5px, red 10px 4px 20px 5px, red 10px -4px 20px 5px, red -10px -4px 20px 5px"
         response.style.display= "block"
         response.style.backgroundImage = trivia.wrongImg
-        player.score -= 2.5
         wrongUser += 1
-    }
-    setTimeout(render, 1500)
+    } 
+    questionCounter++
+    setTimeout(render, 2000)
+
+    
+    
     
 }
 
-function score(){
-
-}
 
     
 function backgroundImage(trivia){
     if(trivia === harryPotter){
-        scoreB.style.backgroundImage = harryPotter.soreB
         bodyEl.style.backgroundImage = harryPotter.backgroundImg
     }else if(trivia === starWars){
-        scoreB.style.backgroundImage = starWars.backgroundImg
         bodyEl.style.backgroundImage = starWars.backgroundImg
 
     }else if(trivia === lordOfTheRings){
-        scoreB.style.backgroundImage = lordOfTheRings.scoreB
         bodyEl.style.backgroundImage = lordOfTheRings.backgroundImg
 
     }else{
-        scoreB.style.backgroundImage = marvelU.backgroundImg
         bodyEl.style.backgroundImage = marvelU.backgroundImg
 
     }
@@ -210,7 +217,7 @@ starWars.previewSound = 'css/starw_theme.mp3'
 starWars.wrongImg = "url('css/wrong-saber.png')"
 starWars.correctImg = "url('css/right-saber.png')"
 starWars.scoreB = "url('')"
-starWars.backgroundImg = "url('css/starwars_back.png')"
+starWars.backgroundImg = "url('css/starback.jpg')"
 
 const lordOfTheRings = new Trivia()
 lordOfTheRings.questions.push(

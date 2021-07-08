@@ -1,13 +1,12 @@
 body{
-    background-image: url("/css/movie.jpg");
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: center;
+    height: 100vh;
+    width: 100vw;
     background-color: black;
-    height: 100%;
 }
 
 main{
+    height: 100vh;
+    width: 100vw;
     display: grid;
     grid-template-areas: 
         "header"
@@ -28,36 +27,32 @@ main{
     color: gold;
 }
 
+.description{
+    text-align: center;
+    margin-top: 300px;
+    max-width: 300px;
+    grid-area: header;
+    font-size: 20px;
+    color: white;
+}
+
 .board{
     grid-area: board;
-    height: 720px;
-    width: 1080px;
+    height: 500px;
+    width: 800px;
 }
 .score{
-    /* visibility: hidden; */
     grid-area: score;
     height: 100px;
     width: 500px;
-    background-color:rgba(255, 255, 255, 0.349);
+    background-color:rgba(155, 231, 56, 0.76);
     margin-right: 10px;
-    display: flex;
-    flex-wrap: wrap;
+    padding-top: 50px;
+    margin-top: -29px;
+    border-radius: 100px;
 }
 
 
-.answerQ{
-    /* visibility: hidden; */
-    grid-area: input;
-    display: flex;
-    flex-wrap: wrap;
-    height: 100px;
-    width: 500px;
-    background-color: teal;
-    justify-content: space-between;
-    align-self: center;
-    justify-content: space-between;
-    align-items: center;
-}
 
 
 #changeBtn{
@@ -75,14 +70,10 @@ main{
     grid-area: board;
     display: grid;
     grid-template-columns: 1fr, 1fr;
-    grid-template-rows: .5fr, .5fr;
+    grid-template-rows: 1fr, 1fr;
     grid-template-areas:
     "starW harryP"
     "lotr  marvel";
-    height: 40em;
-    width: 30em;
-    grid-gap: 10px;
-    border-radius: 100px;
 }
 
 #starW{
@@ -107,12 +98,15 @@ main{
 
 
 .quesBox{
-    background-color: rgba(255, 255, 255, 0.575);
+    background-color: rgba(0, 0, 0, 0.781);
     grid-area: board;
-    height: 400px;
-    width: 750px;
+    height: 300px;
+    width: 600px;
+    padding-bottom: 30px;
     border-radius: 100px;
     color: rgb(12, 14, 12);
+    border: 10px solid rgba(66, 66, 66, 0.178);
+    /* box-shadow: rgba(106, 243, 27, 0.829) 4px 5px 20px; */
 }
 
 
@@ -121,47 +115,58 @@ main{
     font-size: 20px;
 }
 .question{
-    margin-top: 40px;
+    background-color:rgba(57, 149, 255, 0.767);
+    color: rgba(255, 254, 254, 0.788);
+    width: 500px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-self: center;
+    justify-self: center;
+    margin-top: 50px;
+    margin-left: 43px;
+    border-radius: 13px;
+    box-shadow: rgba(201, 198, 198, 0.493) 10px 4px 10px 3px, rgba(199, 199, 199, 0.493) -10px 4px 20px 3px;
 
 }
 .quesOp{
     list-style-type: none;
-    margin-top: 50px;
+    width: 300px;
     margin-left: 100px;
-    margin-right: 100px;
+    
 }
 .option{
+    cursor:crosshair;
     color: rgb(255, 217, 0);
     border: 2px solid black;
-    margin: 7px;
-    padding-left: 10px;
-    text-align: start;
+    margin: 7px;   
+    text-align: center;
     border-radius: 20px;
-    background-color: rgba(75, 71, 71, 0.5);
+    background-color: rgba(102, 101, 101, 0.5);
     border: 2px solid rgba(50, 52, 54, 0.295);
 }
 .option:hover{
-    background-color: rgba(66, 64, 64, 0); 
+    background-color: rgb(0, 0, 0); 
+    box-shadow: rgba(162, 1, 255, 0.493) 10px 4px 10px 3px, rgba(162, 1, 255, 0.493) -10px 4px 20px 3px;
+    color: rgb(255, 255, 255);
+
+
 }
 
 .response{
     background-repeat: no-repeat;
     background-size:fill;
     background-position: center;
-    background-color: black;
-    grid-area: input;
-    margin-left: 280px;
-    grid-area: input;
+    justify-content: center;
+    align-self: center;
+    grid-area: board;
     height: 200px;
     width: 200px;
-    text-align: center;
-    border-radius: 100px;
     font-size:25px;
-    background-color: rgba(255, 255, 255, 0.575);
+    margin-left: 200px;
 }
 .scoreB{
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-flex;
+    column-gap: 20px;
     flex-direction: row;
 }
