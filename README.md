@@ -77,6 +77,7 @@ click [here](https://www.fantaSci-trivia.surge.sh) to play
 ![StarWars](/css/Star_Wars.PNG)
 ![HarryP](/css/Harry_P.PNG)
 ![MarvelU](/css/MarvelU.PNG)
+![lotr](/css/lotr.PNG)
 #
 
 ## Technology implemented:
