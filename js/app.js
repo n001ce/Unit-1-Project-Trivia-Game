@@ -17,7 +17,7 @@ let bodyEl = document.querySelector("body")
 let audio = document.createElement('audio')
 let newAudio = document.createElement("audio")
 let timerEl = document.getElementById("timer")
-
+let timeLeft
 document.getElementById("a").addEventListener("click", checkAnswer)
 document.getElementById("b").addEventListener("click", checkAnswer)
 document.getElementById("c").addEventListener("click", checkAnswer)
@@ -26,31 +26,30 @@ document.getElementById("d").addEventListener("click", checkAnswer)
 harryP.addEventListener("click", function(e){
 	trivia = harryPotter
     startGame()
-    return trivia
 	})
 
 starW.addEventListener("click", function(e){
 	trivia = starWars
     startGame()
-    return trivia
+
 	})
 
 lotr.addEventListener("click", function(e){
     trivia = lordOfTheRings
     startGame()
-    return trivia
     })
 
 marvel.addEventListener("click", function(e){
     trivia = marvelU
     startGame()
-    return trivia
     })
 
 
 init()
 
 function init(){
+    timeLeft = 60
+    timerEl.style.display = "none"
     newAudio.pause()
     audio.src = 'css/audience.mp3'
     audio.play()
@@ -62,23 +61,23 @@ function init(){
     bodyEl.style.backgroundImage = "none"
 }
 
-let timeLeft = 60
+
 function countDown(){
-    setInterval(function(){
         if(timeLeft <= 0){
-            clearInterval(timeLeft = 0)
-            timerEl.innerText = `Times Up`
-            endGame()
-            return
-        }
-        timerEl.innerText = `Time left:` + `\n` + `${timeLeft}`
-        timeLeft -=1
+            timerEl.style.display = "none"
+            return endGame()
+        }else{
+            timer = setInterval(function(){
+            timerEl.innerText = `Time left:` + `\n` + `${timeLeft}`
+            timeLeft--
     }, 1000)
     }
+}
+let timer = setTimeout(countDown, 1000)
 
 function startGame(){
+    timer
     timerEl.style.display = "block"
-    countDown()
     changeBtn.style.display = "flex"
     document.querySelector(".description").style.display = "none"
     audio.pause()
@@ -98,7 +97,6 @@ function clearState(){
     response.style.display = "none"
     audio.pause()
     quesBox.style.boxShadow="none"
-
 }
 
 
@@ -151,7 +149,9 @@ function checkAnswer(e){
 
 function endGame(){
     quesOp.style.display = "none"
-    questionEl.innerText = `GAME OVER` + `\n` + `Total Score :` + `\n` + `${player.score}` + `\n` + `${winMessage()}`
+    timerEl.style.display = "none"
+    questionEl.innerText = `GAME OVER` + `\n` + `Total Score :` + `\n` + `${player.score}` + `\n` + `${winMessage()}` + `\n` + `${timerEl.innerText}`
+    clearInterval(timer)
 }
 
 
