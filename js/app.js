@@ -30,11 +30,13 @@ document.getElementById("c").addEventListener("click", checkAnswer)
 document.getElementById("d").addEventListener("click", checkAnswer)
 document.getElementById("restart").addEventListener("click", ()=>{
     questionCounter = 0
-    questionSelector()
     player.score = 0
     player.numWrong = 0
     player.numCorrect = 0
+    numWrong.innerText = 0
+    numCorrect.innerText = 0
     timeLeft = 60
+    render()
 })
 
 init()
