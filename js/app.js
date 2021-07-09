@@ -4,44 +4,25 @@ const lotr = document.getElementById("lotr")
 const marvel = document.getElementById("marvel")
 const changeBtn = document.getElementById("changeBtn")
 const tickets = document.querySelector(".tickets")
+const timerEl = document.getElementById("timer")
+const remainingQ = document.querySelector("#remainingQ")
+const questionEl = document.querySelector(".question")
+const scoreB = document.querySelector(".score")
+const numCorrect = document.getElementById("numCorrect")
+const numWrong = document.getElementById("numWrong")
+const quesOp = document.querySelector(".quesOp")
+const quesBox = document.querySelector(".quesBox")
+const response = document.querySelector(".response")
+const bodyEl = document.querySelector("body")
+const audio = document.createElement('audio')
+const newAudio = document.createElement("audio")
 
 let questionCounter, trivia, timeLeft
 
-let questionEl = document.querySelector(".question")
-let scoreB = document.querySelector(".score")
-let numCorrect = document.getElementById("numCorrect")
-let numWrong = document.getElementById("numWrong")
-let quesOp = document.querySelector(".quesOp")
-let quesBox = document.querySelector(".quesBox")
-let remainingQ = document.querySelector("#remainingQ")
-let response = document.querySelector(".response")
-let bodyEl = document.querySelector("body")
-let audio = document.createElement('audio')
-let newAudio = document.createElement("audio")
-let timerEl = document.getElementById("timer")
-
-
-
-harryP.addEventListener("click", function(e){
-	trivia = harryPotter
-    startGame()
-	})
-
-starW.addEventListener("click", function(e){
-	trivia = starWars
-    startGame()
-
-	})
-
-lotr.addEventListener("click", function(e){
-    trivia = lordOfTheRings
-    startGame()
-    })
-
-marvel.addEventListener("click", function(e){
-    trivia = marvelU
-    startGame()
-    })
+harryP.addEventListener("click", ()=>{trivia = harryPotter, startGame()})
+starW.addEventListener("click", ()=>{trivia = starWars, startGame()})
+lotr.addEventListener("click", ()=>{trivia = lordOfTheRings, startGame()})
+marvel.addEventListener("click", ()=>{trivia = marvelU, startGame()})
 
 document.getElementById("a").addEventListener("click", checkAnswer)
 document.getElementById("b").addEventListener("click", checkAnswer)
@@ -109,16 +90,6 @@ function questionSelector(){
     }
 }
 
-function winMessage(){
-    if(player.score >= 90){
-        return "Put The Movie Down Already"
-    }else if(player.score > 60 && player.score <  90){
-        return "It's been a while hasn't it?"
-    }else{
-        return "Have you even seen these movies?"
-}
-}
-
 function checkAnswer(e){
     const selectedAnswer = e.target.id
     if(selectedAnswer === trivia.questions[questionCounter].answerId){
@@ -139,7 +110,7 @@ function checkAnswer(e){
     setTimeout(render, 1500)
 }
 
-function checkSpeedRun(){
+function winMessage(){
     if(timeLeft > 30 && player.score > 90){return `I think this might be too easy for you`} 
     else if(timeLeft > 30 && player.score < 90){return "Slow and steady wins the race"}
     else if(timeLeft < 30 && player.score >= 90){return "GREAT JOB!"}
@@ -156,13 +127,13 @@ function clearState(){
 function endGame(){
     quesOp.style.display = "none"
     timerEl.style.display = "none"
-    questionEl.innerText = `GAME OVER \n Total Score : ${player.score} \n ${winMessage()} \n ${timerEl.innerText} \n ${checkSpeedRun()}`
+    questionEl.innerText = `GAME OVER \n Total Score : ${player.score} \n ${timerEl.innerText} \n ${winMessage()}`
 }
 
 
 
     
-function backgroundImage(trivia){
+function triviaDisplay(trivia){
     if(trivia === harryPotter){
         document.querySelector(".title").innerText = "Harry Potter"
         bodyEl.style.backgroundImage = harryPotter.backgroundImg
@@ -183,7 +154,7 @@ function backgroundImage(trivia){
 }
 
 function render(){
-    backgroundImage(trivia)
+    triviaDisplay(trivia)
     questionSelector(questionCounter)
     numCorrect.innerText = `CORRECT: ${player.numCorrect}`
     numWrong.innerText = `WRONG: ${player.numWrong}`
