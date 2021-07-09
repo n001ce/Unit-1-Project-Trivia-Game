@@ -1,7 +1,7 @@
 # FantaSci Trivia
 
 ## Objective:
-### Create a browser-based quiz game using HTML, CSS, and JS
+Create a browser-based quiz game using HTML, CSS, and JS
 #
 
 ## PLAY THE GAME
