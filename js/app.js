@@ -4,24 +4,23 @@ const lotr = document.getElementById("lotr")
 const marvel = document.getElementById("marvel")
 const changeBtn = document.getElementById("changeBtn")
 const tickets = document.querySelector(".tickets")
+
+let questionCounter, trivia, timeLeft
+
 let questionEl = document.querySelector(".question")
 let scoreB = document.querySelector(".score")
 let numCorrect = document.getElementById("numCorrect")
 let numWrong = document.getElementById("numWrong")
 let quesOp = document.querySelector(".quesOp")
 let quesBox = document.querySelector(".quesBox")
-let questionCounter, trivia
 let remainingQ = document.querySelector("#remainingQ")
 let response = document.querySelector(".response")
 let bodyEl = document.querySelector("body")
 let audio = document.createElement('audio')
 let newAudio = document.createElement("audio")
 let timerEl = document.getElementById("timer")
-let timeLeft
-document.getElementById("a").addEventListener("click", checkAnswer)
-document.getElementById("b").addEventListener("click", checkAnswer)
-document.getElementById("c").addEventListener("click", checkAnswer)
-document.getElementById("d").addEventListener("click", checkAnswer)
+
+
 
 harryP.addEventListener("click", function(e){
 	trivia = harryPotter
@@ -43,6 +42,11 @@ marvel.addEventListener("click", function(e){
     trivia = marvelU
     startGame()
     })
+
+document.getElementById("a").addEventListener("click", checkAnswer)
+document.getElementById("b").addEventListener("click", checkAnswer)
+document.getElementById("c").addEventListener("click", checkAnswer)
+document.getElementById("d").addEventListener("click", checkAnswer)
 
 
 init()
@@ -88,15 +92,7 @@ function startGame(){
     scoreB.style.display = "flex"
     tickets.style.display="none"
     quesBox.style.display="block"
-    numCorrect.innerText = player.numCorrects
-    numWrong.innerText = player.numWrong
     render()
-}
-
-function clearState(){
-    response.style.display = "none"
-    audio.pause()
-    quesBox.style.boxShadow="none"
 }
 
 
@@ -115,11 +111,11 @@ function questionSelector(){
 
 function winMessage(){
     if(player.score >= 90){
-        return "Put The DVD Down Already"
+        return "Put The Movie Down Already"
     }else if(player.score > 60 && player.score <  90){
         return "It's been a while hasn't it?"
     }else{
-        return "Have you even seen this movie?"
+        return "Have you even seen these movies?"
 }
 }
 
@@ -141,6 +137,12 @@ function checkAnswer(e){
     } 
     questionCounter++
     setTimeout(render, 1500)
+}
+
+function clearState(){
+    response.style.display = "none"
+    audio.pause()
+    quesBox.style.boxShadow="none"
 }
 
 function endGame(){
@@ -174,9 +176,9 @@ function backgroundImage(trivia){
 function render(){
     backgroundImage(trivia)
     questionSelector(questionCounter)
-    numCorrect.innerText = player.numCorrect
-    numWrong.innerText = player.numWrong
-    remainingQ.innerText = trivia.questions.length - questionCounter
+    numCorrect.innerText = `CORRECT: ${player.numCorrect}`
+    numWrong.innerText = `WRONG: ${player.numWrong}`
+    remainingQ.innerText = `? LEFT : ${trivia.questions.length - questionCounter}`
     clearState()
 }
 

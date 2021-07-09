@@ -12,6 +12,8 @@ main{
     height: 60em;
     width: 90em;
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     grid-template-areas: 
         "header"
         "board"
@@ -43,29 +45,21 @@ main{
     min-height: 400px;
     min-width: 600px;
 }
-.score{
-    grid-area: score;
-    height: 100px;
-    width: 600px;
-    background-color:rgba(78, 74, 74, 0.856);
-    margin-right: 10px;
-    padding-top: 50px;
-    border-radius: 50px;
-    box-shadow: rgba(255, 197, 8, 0.863)  3px 10px 20px;
 
-
-}
 
 
 
 
 #changeBtn{
+    border-radius: 20px;
     background-color: rgb(255, 6, 6);
     height: 50px;
     width: 70px;
     align-items: center;
     text-align: center;
-    grid-area: board;
+    grid-area: score;
+    margin-top: 24px;
+    margin-left: 20px;
     color: white;
     font-style: bold;
 }
@@ -105,6 +99,7 @@ main{
 }
 
 
+
 .quesBox{
     background-color: rgba(0, 0, 0, 0.781);
     grid-area: board;
@@ -114,7 +109,6 @@ main{
     border-radius: 100px;
     color: rgb(12, 14, 12);
     border: 10px solid rgba(66, 66, 66, 0.178);
-    /* box-shadow: rgba(106, 243, 27, 0.829) 4px 5px 20px; */
 }
 
 
@@ -177,7 +171,6 @@ main{
     column-gap: 20px;
     flex-direction: row;
     font-size: 20px;
-    color: white;
 }
 
 #timer{
@@ -195,4 +188,48 @@ main{
     width: 200px;
     margin-top: 200px;
     background-color:rgba(0, 0, 0, 0.61)
+}
+
+
+#numCorrect{
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    grid-area: score;
+    display: flex;
+    width: 130px;
+    height: 50px;
+    background-color: rgba(94, 255, 20, 0.685);
+    box-shadow: #85ff677e 10px 4px 10px 3px, #d4ffc97e -10px 4px 20px 3px;
+
+}
+
+#numWrong{
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    grid-area: score;
+    display: flex;
+    width: 130px;
+    height: 50px;
+    background-color: rgba(248, 20, 20, 0.76);
+    box-shadow: #f76c8a7e 10px 4px 10px 3px, #85ff677e -10px 4px 20px 3px;
+}
+#remainingQ{
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    grid-area: score;
+    display: flex;
+    width: 130px;
+    height: 50px;
+    background-color: rgba(255, 217, 0, 0.705);
+    box-shadow: #ffe5557e 10px 4px 10px 3px, #f76c8a7e -10px 4px 20px 3px;
+
 }
