@@ -28,7 +28,14 @@ document.getElementById("a").addEventListener("click", checkAnswer)
 document.getElementById("b").addEventListener("click", checkAnswer)
 document.getElementById("c").addEventListener("click", checkAnswer)
 document.getElementById("d").addEventListener("click", checkAnswer)
-
+document.getElementById("restart").addEventListener("click", ()=>{
+    questionCounter = 0
+    questionSelector()
+    player.score = 0
+    player.numWrong = 0
+    player.numCorrect = 0
+    timeLeft = 60
+})
 
 init()
 
@@ -114,8 +121,8 @@ function winMessage(){
     if(timeLeft > 30 && player.score > 90){return `I think this might be too easy for you`} 
     else if(timeLeft > 30 && player.score < 90){return "Slow and steady wins the race"}
     else if(timeLeft < 30 && player.score >= 90){return "GREAT JOB!"}
-    else if(timeLeft < 30 && timeLeft != 0 && player.score < 90){return "Try Again!"}
-    else if(timeLeft = 0 && player.score <= 70){return "This might be too hard for you"}
+    else if(timeLeft < 30 && timeLeft > 0 && player.score < 70){return "Try Again!"}
+    else{return "This might be too hard for you"}
 }
 
 function clearState(){

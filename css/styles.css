@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: digital;
     src: url(Pixeboy-z8XGD.ttf);
@@ -57,12 +59,8 @@ main{
     min-width: 600px;
 }
 
-
-
-
-
-#changeBtn{
-    font-size: 19px;
+#changeBtn, #restart{
+    font-size: 17px;
     border-radius: 20px;
     background-color: rgb(255, 6, 6);
     height: 50px;
@@ -74,6 +72,10 @@ main{
     margin-left: 20px;
     color: white;
     font-style: bold;
+}
+
+#restart{
+    margin-left: 50px;
 }
 
 
