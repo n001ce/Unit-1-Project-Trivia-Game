@@ -22,15 +22,19 @@ const newAudio = document.createElement("audio")
 let questionCounter, trivia, timeLeft
 
 //eventListeners
+//trivia selection
 harryP.addEventListener("click", ()=>{trivia = harryPotter, startGame()})
 starW.addEventListener("click", ()=>{trivia = starWars, startGame()})
 lotr.addEventListener("click", ()=>{trivia = lordOfTheRings, startGame()})
 marvel.addEventListener("click", ()=>{trivia = marvelU, startGame()})
 
+//trivia options
 document.getElementById("a").addEventListener("click", checkAnswer)
 document.getElementById("b").addEventListener("click", checkAnswer)
 document.getElementById("c").addEventListener("click", checkAnswer)
 document.getElementById("d").addEventListener("click", checkAnswer)
+
+//restart button
 document.getElementById("restart").addEventListener("click", ()=>{
     questionCounter = 0
     player.score = 0
