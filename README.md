@@ -107,11 +107,11 @@ click [here](https://www.fantaSci-trivia.surge.sh) to play
 
 * As a user, I should be notified of when I was correct and when I was wrong
 
-* As a user, I should be able to change the quiz at any point, or at the end of the quiz.
+* As a user, I should be able to change the quiz at any point.
 
 * As a user, I should be able to hear 8 bit theme songs during each different quiz.
 
-* As a user, I should a message at the end of the game displaying how fast I was and what my score is.
+* As a user, I should see a message at the end of the game displaying how fast I was and what my score is.
 
 
 
