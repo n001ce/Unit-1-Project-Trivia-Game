@@ -1,3 +1,9 @@
+@font-face {
+    font-family: digital;
+    src: url(Pixeboy-z8XGD.ttf);
+  }
+  *{font-family: digital}
+
 body{
     height: 100em;
     width: 100em;
@@ -29,6 +35,11 @@ main{
     text-align: center;
     justify-content: center;
     color: gold;
+    width: 400px;
+    background-color: rgba(0, 63, 3, 0.616);
+    border-radius: 20px;
+    border: rgba(0, 0, 0, 0.651) 8px solid;
+    box-shadow:rgba(0, 255, 0, 0.432) 10px 10px 20px, rgba(0, 255, 0, 0.432) -10px -10px 20px, -9px 9px 20px;
 }
 
 .description{
@@ -36,7 +47,7 @@ main{
     margin-top: 300px;
     width: 500px;
     grid-area: header;
-    font-size: 20px;
+    font-size: 30px;
     color: white;
 }
 
@@ -51,6 +62,7 @@ main{
 
 
 #changeBtn{
+    font-size: 19px;
     border-radius: 20px;
     background-color: rgb(255, 6, 6);
     height: 50px;
@@ -114,10 +126,12 @@ main{
 
 .question, .quesOp{
     text-align: center;
-    font-size: 20px;
 }
 .question{
-    color: rgba(255, 254, 254, 0.788);
+    font-family:monospace;
+    border: 6px rgba(155, 155, 155, 0.397) solid;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
     width: 500px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -127,7 +141,7 @@ main{
     margin-left: 43px;
     border-radius: 13px;
     box-shadow: rgba(201, 198, 198, 0.493) 10px 4px 10px 3px, rgba(199, 199, 199, 0.493) -10px 4px 20px 3px;
-
+    padding-left: 6px;
 }
 .quesOp{
     list-style-type: none;
@@ -136,6 +150,7 @@ main{
     
 }
 .option{
+    font-size: 23px;
     cursor:crosshair;
     color: rgb(255, 217, 0);
     border: 2px solid black;
@@ -175,19 +190,18 @@ main{
 
 #timer{
     text-align: center;
-    align-self: center;
-    justify-content: center;
     display: flex;
-    justify-items: center;
-    align-items: center;
     grid-area: header;
     font-size: 30px;
-    border: rgba(255, 255, 255, 0.493) 2px solid;
-    color: rgba(255, 255, 255, 0.925);
+    border: rgba(255, 255, 255, 0.493) 4px solid;
+    color: rgba(255, 251, 32, 0.925);
     height: 40px;
     width: 200px;
     margin-top: 200px;
-    background-color:rgba(0, 0, 0, 0.61)
+    box-shadow:rgba(0, 255, 0, 0.432) 10px 10px 20px, rgba(0, 255, 0, 0.432) -10px -10px 20px, -9px 9px 20px;
+    padding-top: 5px;
+    border-radius: 90px;
+    background-color: rgba(0, 63, 3, 0.616);
 }
 
 
@@ -229,7 +243,7 @@ main{
     display: flex;
     width: 130px;
     height: 50px;
-    background-color: rgba(255, 217, 0, 0.705);
+    background-color: rgba(230, 196, 8, 0.87);
     box-shadow: #ffe5557e 10px 4px 10px 3px, #f76c8a7e -10px 4px 20px 3px;
 
 }

@@ -139,6 +139,14 @@ function checkAnswer(e){
     setTimeout(render, 1500)
 }
 
+function checkSpeedRun(){
+    if(timeLeft > 30 && player.score > 90){return `I think this might be too easy for you`} 
+    else if(timeLeft > 30 && player.score < 90){return "Slow and steady wins the race"}
+    else if(timeLeft < 30 && player.score >= 90){return "GREAT JOB!"}
+    else if(timeLeft < 30 && timeLeft != 0 && player.score < 90){return "Try Again!"}
+    else if(timeLeft = 0 && player.score <= 70){return "This might be too hard for you"}
+}
+
 function clearState(){
     response.style.display = "none"
     audio.pause()
@@ -148,8 +156,9 @@ function clearState(){
 function endGame(){
     quesOp.style.display = "none"
     timerEl.style.display = "none"
-    questionEl.innerText = `GAME OVER` + `\n` + `Total Score :` + `\n` + `${player.score}` + `\n` + `${winMessage()}` + `\n` + `${timerEl.innerText} seconds`
+    questionEl.innerText = `GAME OVER \n Total Score : ${player.score} \n ${winMessage()} \n ${timerEl.innerText} \n ${checkSpeedRun()}`
 }
+
 
 
     
@@ -213,11 +222,11 @@ harryPotter.questions.push(
     {question : "Who saved a centaur from being strangled by Professor Umbridge in the Forbidden Forest?", answerId : "a", options: {a: "Grawp", b: "Buckbeak", c: "Hagrid", d:"Luna"}},
     )
 
-harryPotter.previewSound = 'css/harryP_theme.mp3'
-harryPotter.wrongImg = "url('css/rememberall1.png')"
-harryPotter.correctImg = "url('css/remberall_right.png')"
+harryPotter.previewSound = 'css/hp/harryP_theme.mp3'
+harryPotter.wrongImg = "url('css/hp/rememberall1.png')"
+harryPotter.correctImg = "url('css/hp/remberall_right.png')"
 harryPotter.questionBox = "rgba(245, 181, 45, 0.726)"
-harryPotter.backgroundImg = "url('css/harrypotter_back.jpg')"
+harryPotter.backgroundImg = "url('css/hp/harrypotter_back.jpg')"
 
 const starWars = new Trivia()
 starWars.questions.push(
@@ -233,11 +242,11 @@ starWars.questions.push(
     {question : "What odds does C-3P0 give Han for successfully navigating the asteroid field?", answerId : "a", options: {a: "3720 to 1", b: "5430 to 1", c: "2670 to 1", d:"3500 to 1"}},
 )
 
-starWars.previewSound = 'css/starw_theme.mp3'
-starWars.wrongImg = "url('css/wrong-saber.png')"
-starWars.correctImg = "url('css/right-saber.png')"
+starWars.previewSound = 'css/sw/starw_theme.mp3'
+starWars.wrongImg = "url('css/sw/wrong-saber.png')"
+starWars.correctImg = "url('css/sw/right-saber.png')"
 starWars.questionBox = "rgba(57, 149, 255, 0.767)"
-starWars.backgroundImg = "url('css/starback.jpg')"
+starWars.backgroundImg = "url('css/sw/starwars_background.jpg')"
 
 const lordOfTheRings = new Trivia()
 lordOfTheRings.questions.push(
@@ -253,11 +262,11 @@ lordOfTheRings.questions.push(
     {question : "Which six characters from the original fellowship reunite in Isengard?", answerId : "a", options: {a: "Merry, Pippin, Aragorn, Gimli, Legolas and Gandalf", b: "Merry, Pippin, Frodo, Sam, Legolas and Gandalf", c: "Frodo, Sam, Aragorn, Boromir, Legolas and Gandalf", d:"Boromir, Aragon, Bilbo, Frodo, Sam and Gandalf"}},
     )
 
-lordOfTheRings.previewSound = 'css/lotr_theme.mp3'
-lordOfTheRings.wrongImg = "url('css/bilbo_wrong.png')"
-lordOfTheRings.correctImg = "url('css/bilbo_right.png')"
+lordOfTheRings.previewSound = 'css/lotr/lotr_theme.mp3'
+lordOfTheRings.wrongImg = "url('css/lotr/bilbo_wrong.png')"
+lordOfTheRings.correctImg = "url('css/lotr/bilbo_right.png')"
 lordOfTheRings.questionBox = "rgba(136, 194, 98, 0.808)"
-lordOfTheRings.backgroundImg = "url('css/lotr_back.jpg')"
+lordOfTheRings.backgroundImg = "url('css/lotr/lotr_back.jpg')"
 
 const marvelU = new Trivia()
 marvelU.questions.push(
@@ -273,8 +282,8 @@ marvelU.questions.push(
     {question : "Complete the quote from Tony Stark’s daughter: I love you ____", answerId : "a", options: {a: "3000", b: "2000", c: "5000", d:"4000"}},
 )
 
-marvelU.previewSound = 'css/marvel_theme.mp3'
-marvelU.wrongImg = "url('css/marvel_wrong.png')"
-marvelU.correctImg = "url('css/marvel_right.png')"
+marvelU.previewSound = 'css/marvel/marvel_theme.mp3'
+marvelU.wrongImg = "url('css/marvel/marvel_wrong.png')"
+marvelU.correctImg = "url('css/marvel/marvel_right.png')"
 marvelU.questionBox= "rgba(255, 0, 0, 0.466)"
-marvelU.backgroundImg = "url('css/marvel_back.jpg')"
+marvelU.backgroundImg = "url('css/marvel/marvel_back.jpg')"

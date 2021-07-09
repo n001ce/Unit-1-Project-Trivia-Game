@@ -9,7 +9,7 @@ click [here](https://www.fantaSci-trivia.surge.sh) to play
 
 #
 ## Motivation: 
-### As an avid fan of all things scifi/fantasy and barstool trivia, I wanted to create an application that would challenge my knowledge in an entertaining environment. I chose the four movies I have seen the most to try and challenge others with some of the questions I found to be easy and quite difficult. 
+### As an avid fan of all things scifi/fantasy and barstool trivia, I wanted to create an application that would challenge my knowledge in an entertaining environment. I chose the four movie series I have seen the most to try and challenge others with some of the questions I found to be easy and quite difficult. 
 #
 
 ## Rules:
@@ -27,38 +27,38 @@ click [here](https://www.fantaSci-trivia.surge.sh) to play
     * Harry Potter :
         * Correct: 
             
-            ![hp-right](/css/remberall_right.png)
+            ![hp-right](/css/hp/remberall_right.png)
 
         * Wrong: 
   
-            ![hp-wrong](/css/rememberall1.png)
+            ![hp-wrong](/css/hp/rememberall1.png)
     
     * Star Wars :
         * Correct: 
             
-            ![hp-right](/css/right-saber.png)
+            ![hp-right](/css/sw/right-saber.png)
 
         * Wrong: 
   
-            ![hp-wrong](/css/wrong-saber.png)
+            ![hp-wrong](/css/sw/wrong-saber.png)
     
     * Lord of The Rings :
         * Correct: 
             
-            ![hp-right](/css/bilbo_right.png)
+            ![hp-right](/css/lotr/bilbo_right.png)
 
         * Wrong: 
   
-            ![hp-wrong](/css/bilbo_wrong.png)
+            ![hp-wrong](/css/lotr/bilbo_wrong.png)
 
     * Marvel :
         * Correct: 
             
-            ![hp-right](/css/marvel_right.png)
+            ![hp-right](/css/marvel/marvel_right.png)
 
         * Wrong: 
   
-            ![hp-wrong](/css/marvel_wrong.png)
+            ![hp-wrong](/css/marvel/marvel_wrong.png)
 
 
 
@@ -69,15 +69,15 @@ click [here](https://www.fantaSci-trivia.surge.sh) to play
 
 
 ## The Initial Wireframe:
-
+![wireFrame](css/readme/wireFrame.PNG)
 #
 
 ## The Final Outlook
-![HomePage](/css/main_menu.PNG)
-![StarWars](/css/Star_Wars.PNG)
-![HarryP](/css/Harry_P.PNG)
-![MarvelU](/css/MarvelU.PNG)
-![lotr](/css/lotr.PNG)
+![HomePage](/css/readme/main_menu.PNG)
+![StarWars](/css/readme/Star_Wars.PNG)
+![HarryP](/css/readme/Harry_P.PNG)
+![MarvelU](/css/readme/MarvelU.PNG)
+![lotr](/css/readme/lotr.PNG)
 #
 
 ## Technology implemented:
@@ -98,7 +98,6 @@ click [here](https://www.fantaSci-trivia.surge.sh) to play
 * marvel: https://www.hypable.com/marvel-cinematic-universe-trivia-to-test-even-the-smartest-avenger/
 
 
-## Pseudocode:
 
 ## Minimum Viable Product:
 
@@ -111,6 +110,8 @@ click [here](https://www.fantaSci-trivia.surge.sh) to play
 * As a user, I should be able to change the quiz at any point, or at the end of the quiz.
 
 * As a user, I should be able to hear 8 bit theme songs during each different quiz.
+
+* As a user, I should a message at the end of the game displaying how fast I was and what my score is.
 
 
 
@@ -125,3 +126,4 @@ click [here](https://www.fantaSci-trivia.surge.sh) to play
 * Add score tracking and display highest scores at the start screen.
 
 * Adjust mobile responsiveness.
+  
