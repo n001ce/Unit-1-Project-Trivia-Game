@@ -148,9 +148,12 @@ main{
     list-style-type: none;
     width: 300px;
     margin-left: 100px;
+
     
 }
 .option{
+    padding-left: 3px;
+    padding-right: 3px;
     font-size: 23px;
     cursor:crosshair;
     color: rgb(255, 217, 0);
