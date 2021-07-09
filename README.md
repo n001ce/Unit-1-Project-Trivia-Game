@@ -105,6 +105,25 @@ click [here](https://www.fantaSci-trivia.surge.sh) to play
 * audience: https://www.youtube.com/watch?v=hfq2QNtuA_Q
 
 
+### Background Images:
+* hp: https://i.pinimg.com/originals/28/d9/cf/28d9cf83174278c70f6f658e6049dc37.jpg
+* starW: https://cdn.wallpapersafari.com/78/98/5R2EL3.jpg
+* lotr: https://images4.alphacoders.com/860/thumb-1920-86098.jpg
+* marvel: https://wallpaperaccess.com/full/945603.jpg
+
+### Correct/Wrong Images:
+
+* hp correct: https://icons.iconarchive.com/icons/anton-gerasimenko/harry-potter/128/Remembrall-icon.png
+* hp wrong: https://icons.iconarchive.com/icons/anton-gerasimenko/harry-potter/128/Remembrall-2-icon.png
+
+* starW: https://lh3.googleusercontent.com/proxy/yBsRhOsXWGjvTwXyFb7Y5rhZYdi5c5UInpyJFRgjGTwE4_U5h2OPVmPYN3R1ncIAsOBV8KTr5nAgJqDhL_Ak97X0Us2a5hqjfagio8fuGpu0GaL1xzavRUG9e5GZnquPG4rFkMrK-C77L_b-KRiqmcHx91k0jo-DACH02bVMcimKUXpJzfg
+  
+* lotr correct: https://phantom-elmundo.unidadeditorial.es/1756b0b5c3637cea902b4336ef4bef62/crop/118x0/952x556/f/webp/assets/multimedia/imagenes/2020/06/19/15925787141337.jpg
+* lotr wrong: https://memegenerator.net/img/images/300x300/14756717.jpg
+  
+* marvel correct: https://i.pinimg.com/originals/45/a3/97/45a39716d59ab98a5c0903bf4098ba1a.png
+* marvel wrong: https://p.kindpng.com/picc/s/145-1450538_view-media-marvel-hydra-logo-png-transparent-png.png
+
 ## Minimum Viable Product:
 
 * As a user, I should be able to select the trivia quiz in the beginning.
