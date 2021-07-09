@@ -1,3 +1,4 @@
+// cached elements
 const harryP = document.getElementById("harryP")
 const starW = document.getElementById("starW")
 const lotr = document.getElementById("lotr")
@@ -17,8 +18,10 @@ const bodyEl = document.querySelector("body")
 const audio = document.createElement('audio')
 const newAudio = document.createElement("audio")
 
+// variables
 let questionCounter, trivia, timeLeft
 
+//eventListeners
 harryP.addEventListener("click", ()=>{trivia = harryPotter, startGame()})
 starW.addEventListener("click", ()=>{trivia = starWars, startGame()})
 lotr.addEventListener("click", ()=>{trivia = lordOfTheRings, startGame()})
@@ -40,7 +43,9 @@ document.getElementById("restart").addEventListener("click", ()=>{
 })
 
 init()
+//functions 
 
+//initialization function
 function init(){
     clearTimeout(timer)
     document.querySelector(".title").innerText = "FantaSci Trivia"
@@ -55,7 +60,7 @@ function init(){
     document.querySelector(".description").style.display = "block"
     bodyEl.style.backgroundImage = "none"
 }
-
+//timer
 function CheckTime() {
     timerEl.innerHTML = `Time Left: `+ `\n ` + `${timeLeft}`  
     if (timeLeft <= 0) {
@@ -67,7 +72,7 @@ function CheckTime() {
   }
 
   
-
+//start game and render quiz
 function startGame(){
     timeLeft = 60
     timer = setTimeout(CheckTime, 1000);
@@ -85,7 +90,7 @@ function startGame(){
     render()
 }
 
-
+//select question
 function questionSelector(){
     if(questionCounter < trivia.questions.length){
     quesOp.style.display = "block"
@@ -99,6 +104,7 @@ function questionSelector(){
     }
 }
 
+//check the user's selection
 function checkAnswer(e){
     const selectedAnswer = e.target.id
     if(selectedAnswer === trivia.questions[questionCounter].answerId){
@@ -119,6 +125,7 @@ function checkAnswer(e){
     setTimeout(render, 1500)
 }
 
+//win scenario messages
 function winMessage(){
     if(timeLeft > 30 && player.score > 90){return `I think this might be too easy for you`} 
     else if(timeLeft > 30 && player.score < 90){return "Slow and steady wins the race"}
@@ -127,21 +134,21 @@ function winMessage(){
     else{return "This might be too hard for you"}
 }
 
+//clear quiz
 function clearState(){
     response.style.display = "none"
     audio.pause()
     quesBox.style.boxShadow="none"
 }
 
+//end game message
 function endGame(){
     quesOp.style.display = "none"
     timerEl.style.display = "none"
     questionEl.innerText = `GAME OVER \n Total Score : ${player.score} \n ${timerEl.innerText} seconds \n ${winMessage()}`
 }
 
-
-
-    
+//display function 
 function triviaDisplay(trivia){
     if(trivia === harryPotter){
         document.querySelector(".title").innerText = "Harry Potter"
@@ -162,6 +169,7 @@ function triviaDisplay(trivia){
     }
 }
 
+//render function
 function render(){
     triviaDisplay(trivia)
     questionSelector(questionCounter)
@@ -171,7 +179,7 @@ function render(){
     clearState()
 }
 
-
+//classes
 function Player(){
     this.score = 0
     this.numWrong = 0
