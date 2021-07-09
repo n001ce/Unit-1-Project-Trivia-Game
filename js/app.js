@@ -127,7 +127,7 @@ function clearState(){
 function endGame(){
     quesOp.style.display = "none"
     timerEl.style.display = "none"
-    questionEl.innerText = `GAME OVER \n Total Score : ${player.score} \n ${timerEl.innerText} \n ${winMessage()}`
+    questionEl.innerText = `GAME OVER \n Total Score : ${player.score} \n ${timerEl.innerText} seconds \n ${winMessage()}`
 }
 
 
