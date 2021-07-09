@@ -97,6 +97,11 @@ click [here](https://www.fantaSci-trivia.surge.sh) to play
 
 * marvel: https://www.hypable.com/marvel-cinematic-universe-trivia-to-test-even-the-smartest-avenger/
 
+### Music:
+* hp: https://www.youtube.com/watch?v=PI8h5bDVUX8&t=29s
+* starW: https://www.youtube.com/watch?v=bOYdk1UY5o8
+* lotr: https://www.youtube.com/watch?v=YR9DMaZWk28
+* marvel: https://www.youtube.com/watch?v=FOv9XC3UXIc
 
 
 ## Minimum Viable Product:
